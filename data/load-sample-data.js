@@ -13,8 +13,6 @@ const drones = JSON.parse(fs.readFileSync(__dirname + '/drones.json', 'utf-8'));
 async function deleteData() {
 	console.log('😢 😢 Goodbye Data...');
 	await Drone.remove();
-	await Review.remove();
-	await User.remove();
 	console.log('Data Deleted. To load sample data, run\n\n\t npm run sample\n\n');
 	process.exit();
 }

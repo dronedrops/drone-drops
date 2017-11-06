@@ -8,7 +8,9 @@
   "scripts": {
     "prod": "node ./start.js",
     "watch": "nodemon ./start.js --ignore public/",
+    "watch-debug": "nodemon --debug-brk=5858 ./start.js --ignore public/",
     "start": "concurrently \"npm run watch\" \"npm run assets\" --names \"✈️,📦\" --prefix name",
+    "debug": "node --inspect-brk start",
     "assets": "webpack -w --display-max-modules 0",
     "sample": "node ./data/load-sample-data.js",
     "blowitallaway": "node ./data/load-sample-data.js --delete",

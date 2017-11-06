@@ -77,3 +77,4 @@ Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mong
 - [] Node App - Meta Coin
 - [] Node App - Meta Mask Integration
 - [] Search Drone based on co-ords
+- [] Floating - Labels
