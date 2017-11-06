@@ -13,6 +13,10 @@ html
             li.nav__item
               a.nav__link.nav__link--logo(href="/")
                 != h.icon('logo')
+          .nav__section.nav__section--search
+            .search
+              input.search__input(type="text" placeholder="" name="search")
+              .search__results
           .nav__section.nav__section--user
             each item in h.menu
               li.nav__item

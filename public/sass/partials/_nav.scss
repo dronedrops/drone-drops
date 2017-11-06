@@ -34,11 +34,12 @@
         }
         &:hover,
         &--active {
-            border-bottom-color: $white;
             border-right-color: $white;
             svg {
                 transform: scale(1.2)
             }
+            background: $grey;
+            
         }
         &--logo {
             &:hover {

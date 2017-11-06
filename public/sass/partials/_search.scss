@@ -17,6 +17,9 @@
     color: white;
     outline: 0;
     border: 0;
+    &:focus {
+      background: none;
+    }
   }
   &__result {
     padding: 10px;

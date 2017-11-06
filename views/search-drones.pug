@@ -1,7 +1,13 @@
 extends layout
 include mixins/_searchDroneForm
+include mixins/_droneCard
 
 block content
     .inner
         h2= title
         +searchDroneForm()
+    if drones
+        .inner
+            .drones
+                each drone in drones
+                    +droneCard(drone)
