@@ -1,0 +1,9 @@
+extends layout
+include mixins/_droneCard
+block content
+    .inner
+        h2= title
+        //- pre!= h.dump(drones)
+        .drones
+            each drone in drones
+                +droneCard(drone)

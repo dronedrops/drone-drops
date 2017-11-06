@@ -1,0 +1,14 @@
+mixin searchDroneForm(drone = {})
+    //- enctype="multipart/form-data"
+    form(action=`/search-drones/${drone._id || ''}`, method="post" class="card" )
+        //- From address, long, lat
+        label(for='address') Pickup From
+        input(type="text" id="fromAddress" name="fromAddress")
+        input(type="text" id="fromLng" name="fromLng" hidden) 
+        input(type="text" id="fromLat" name="fromLat"  hidden) 
+        //- address, long, lat
+        label(for='address') Deliver To
+        input(type="text" id="toAddress" name="location[toAddress]" )
+        input(type="text" id="toLng" name="toLng"  hidden) 
+        input(type="text" id="toLat" name="toLat" hidden) 
+        input(type="submit", value="Search Drones" class="submitButton")

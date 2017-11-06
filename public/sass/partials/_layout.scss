@@ -1,0 +1,16 @@
+html {
+  font-size: 10px;
+}
+
+body {
+  background: $purple;
+  background:#efefef;
+}
+
+.inner {
+  max-width:900px;
+  margin: 0 auto;
+  @media all and (max-width: 900px) {
+    padding: 2rem;
+  }
+}

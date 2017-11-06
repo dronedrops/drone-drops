@@ -1,0 +1,8 @@
+mixin droneCard(drone = {})
+    .drone
+        .drone__hero
+            img(src=`/images/drones/${drone.photo || 'drone.png'}`)
+            p Capacity - #{drone.capacity} lbs
+
+        .drone__details
+            a(href=`/drone/${drone.slug}`) #{drone.eth} ETH

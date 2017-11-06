@@ -1,0 +1,7 @@
+extends layout
+include mixins/_searchDroneForm
+
+block content
+    .inner
+        h2= title
+        +searchDroneForm()

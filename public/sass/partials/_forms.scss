@@ -1,0 +1,42 @@
+input,
+textarea {
+    width: 100%;
+    border: 0px;
+    border-bottom: 1px solid $blue;
+    font-family: 'Roboto Mono', 'Rubrik', sans-serif;
+    font-size: 1.15em;
+    line-height: 1.5;
+    &.input {
+        &--error {
+            border-color: red;
+        }
+    }
+}
+
+input#photo {
+    border: 0;
+}
+
+label {
+    padding: 20px 0 10px 0;
+    display: block;
+    font-size: 1.25em;
+    font-weight: bold;
+    color: $blue;
+}
+
+.form {
+    background: white;
+    padding: 2rem;
+    box-shadow: $grad;
+    &+.form {
+        margin-top: 4rem;
+    } // I know this isn't bem but meh
+    h2 {
+        margin: 0;
+        font-size: 2rem;
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid $grey;
+    }
+}

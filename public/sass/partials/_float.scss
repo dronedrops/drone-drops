@@ -1,0 +1,48 @@
+// float label
+.float-label {
+    .control {
+        float: left;
+        position: relative;
+        width: 100%;
+        border-bottom: 1px solid $blue;
+        padding-top: 23px;
+        padding-bottom: 10px; // you proably want to replace these with your grid classes
+        &.small {
+            width: 30%;
+            border-right: 1px solid $blue;
+        }
+        &.medium {
+            width: 70%;
+            padding-left: 10px;
+        }
+        &:last-child {
+            border: 0;
+        }
+    }
+    input,
+    textarea {
+        display: block;
+        width: 100%;
+        border: 0;
+        outline: 0;
+        resize: none; // inactive but shown label (exceptions: opacity and top)
+        &+label {
+            position: absolute;
+            top: 10px;
+            transition: top 0.7s ease, opacity 0.7s ease;
+            opacity: 0; // Some nice styling
+            font-size: 13px;
+            font-weight: 600;
+            color: #ccc;
+        } // THE MAGIC
+        // as soon as we start typing, the "required" attribute will
+        // set the state to valid and our pseudo selector will match
+        &:valid+label {
+            opacity: 1;
+            top: 3px;
+        } // and we highlight the focused input label
+        &:focus+label {
+            color: #2c8efe;
+        }
+    }
+}
