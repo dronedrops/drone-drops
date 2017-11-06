@@ -6,6 +6,7 @@ textarea {
     font-family: 'Roboto Mono', 'Rubrik', sans-serif;
     font-size: 1.15em;
     line-height: 1.5;
+    padding: 10px 0 10px 5px;
     &.input {
         &--error {
             border-color: red;

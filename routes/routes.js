@@ -24,6 +24,9 @@ router.post('/update-drone/:id',
 router.get('/drones', catchErrors(droneController.getDrones));
 router.get('/drones/:id/edit', catchErrors(droneController.renderEditDrone));
 
+router.get('/drone/:slug', catchErrors(droneController.getDroneBySlug));
+
+
 // router.get('/confirm-payment', catchErrors(droneController.confirmPayment));
 // router.get('/order-status', catchErrors(droneController.orderStatus));
 

@@ -92,3 +92,9 @@ exports.getDrones = async (req, res) => {
 	const drones = await Drone.find(); // List all drones
 	res.render('drones', { title: 'Drones', drones });
 };
+
+exports.getDroneBySlug = async (req, res, next) => {
+	const drone = await Drone.findOne({ slug: req.params.slug });
+	if (!drone) return next();
+	res.render('drone', { drone, title: drone.name });
+};

@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    .single
+        .single__hero
+            img.single__image(src=`/uploads/${drone.photo || 'drone.png'}`)
+
+    .single__details.inner
+        img.single__map(src=h.staticMap(drone.location.coordinates))
+        p.single__location= drone.location.address
+        p Delivery Charge #{drone.eth}
+        p Capacity #{drone.capacity}
