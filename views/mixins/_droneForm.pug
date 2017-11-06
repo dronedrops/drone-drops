@@ -1,6 +1,6 @@
 mixin droneForm(drone = {})
     //- enctype="multipart/form-data"
-    form(action=`/update-drone/${drone._id || ''}`, method="post" class="card" )
+    form(action=`/update-drone/${drone._id || ''}`, method="post" class="card" enctype="multipart/form-data")
         label(for="accountId") AccountId
         input(type="text" name="accountId"  value=drone.accountId)
         label(for="name") Name

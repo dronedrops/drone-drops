@@ -10,8 +10,16 @@ router.get('/eth-demo', droneController.ethDemo);
 /** Helper Routers. For Dev purpose only. */
 
 router.get('/update-drone', droneController.renderAddDrone); // Render Drone Form
-router.post('/update-drone', catchErrors(droneController.createDrone)); // Post Drone Form to DB
-router.post('/update-drone/:id', catchErrors(droneController.updateDrone)); // Find & Updated Drone to DB
+
+router.post('/update-drone', 
+                droneController.upload, 
+                catchErrors(droneController.resize), 
+                catchErrors(droneController.createDrone)); // Post Drone Form to DB
+
+router.post('/update-drone/:id', 
+                droneController.upload, 
+                catchErrors(droneController.resize), 
+                catchErrors(droneController.updateDrone)); // Find & Updated Drone to DB
 
 router.get('/drones', catchErrors(droneController.getDrones));
 router.get('/drones/:id/edit', catchErrors(droneController.renderEditDrone));
