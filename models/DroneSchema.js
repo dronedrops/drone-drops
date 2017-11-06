@@ -45,6 +45,14 @@ const droneSchema = new mongoose.Schema({
 	}
 });
 
+
+// Define our indexes
+droneSchema.index({
+	name: 'text'
+  });
+  
+droneSchema.index({ location: '2dsphere' });
+
 droneSchema.pre('save', async function(next) {
 	if (!this.isModified('name')) {
 		next(); //skip it

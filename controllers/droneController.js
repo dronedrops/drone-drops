@@ -38,8 +38,8 @@ exports.landing = (req, res) => {
 	res.render('landing', { title: 'Home' });
 };
 
-exports.searchDrones = (req, res) => {
-	res.render('search-drones');
+exports.renderSearchDrone = (req, res) => {
+	res.render('search-drones', { title: 'Search Drones' });
 };
 
 exports.confirmPayment = (req, res) => {
@@ -68,7 +68,7 @@ exports.createDrone = async (req, res) => {
 	res.redirect(`drone/${drone.slug}`);
 };
 
-// Render Drone Form in Edit Mode 
+// Render Drone Form in Edit Mode
 exports.renderEditDrone = async (req, res) => {
 	const drone = await Drone.findOne({ _id: req.params.id });
 	res.render('edit-drone', { title: `Edit ${drone.name}`, drone });
@@ -76,7 +76,7 @@ exports.renderEditDrone = async (req, res) => {
 
 exports.updateDrone = async (req, res) => {
 	// 0. set location to Point
-	req.body.location.type = 'point';
+	req.body.location.type = 'Point';
 	// 1. find & update the drone
 	const drone = await Drone.findOneAndUpdate({ _id: req.params.id }, req.body, {
 		new: true, // return the new drone instead of old one
@@ -97,4 +97,25 @@ exports.getDroneBySlug = async (req, res, next) => {
 	const drone = await Drone.findOne({ slug: req.params.slug });
 	if (!drone) return next();
 	res.render('drone', { drone, title: drone.name });
+};
+
+/* API routes */
+exports.searchDrones = async (req, res) => {
+	const drones = await Drone.find(
+		{
+			$text: {
+				$search: req.query.q
+			}
+		},
+		{
+			score: {
+				$meta: 'textScore'
+			}
+		}
+	)
+		.sort({
+			score: { $meta: 'textScore' }
+		})
+		.limit(3);
+	res.json(drones);
 };
