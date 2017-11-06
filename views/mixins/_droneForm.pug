@@ -1,6 +1,6 @@
 mixin droneForm(drone = {})
     //- enctype="multipart/form-data"
-    form(action=`/add-drone/${drone._id || ''}`, method="post" class="card" )
+    form(action=`/update-drone/${drone._id || ''}`, method="post" class="card" )
         label(for="accountId") AccountId
         input(type="text" name="accountId"  value=drone.accountId)
         label(for="name") Name
@@ -10,7 +10,7 @@ mixin droneForm(drone = {})
         label(for="eth") ETH
         input(type="text" name="eth" value=drone.eth) 
         //- address, long, lat
-        label(for='address') address
+        label(for='address') Address
         input(type="text" id="address" name="location[address]" value=(drone.location && drone.location.address))
         label(for='lng') Address Longitude
         input(type="text" id="lng" name="location[coordinates][0]"  value=(drone.location && drone.location.coordinates[0])) 
@@ -20,5 +20,5 @@ mixin droneForm(drone = {})
         label(for="photo") Photo
         input(type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg")
         if drone.photo
-            img(src=`/uploads/${drone.photo}`, alt=drone.name width=200)
-        input(type="submit", value="ADD DRONE" class="submitButton")
+            img(src=`/uploads/${drone.photo}`, alt=drone.name width=200 class="dronePhoto")
+        input(type="submit", value=`${drone._id ? 'Update Drone' : 'Add Drone'}` class="submitButton")

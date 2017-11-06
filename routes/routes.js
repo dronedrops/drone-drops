@@ -4,12 +4,17 @@ const droneController = require('../controllers/droneController');
 const { catchErrors } = require('../handlers/errorHandlers');
 
 router.get('/', droneController.landing);
-router.get('/drones', droneController.getDrones);
-
 router.get('/search-drones', droneController.searchDrones);
+router.get('/eth-demo', droneController.ethDemo);
 
-router.get('/add-drone', droneController.addDrone); // Render Drone Form
-router.post('/add-drone', catchErrors(droneController.createDrone)); // Post Drone Form to DB
+/** Helper Routers. For Dev purpose only. */
+
+router.get('/update-drone', droneController.renderAddDrone); // Render Drone Form
+router.post('/update-drone', catchErrors(droneController.createDrone)); // Post Drone Form to DB
+router.post('/update-drone/:id', catchErrors(droneController.updateDrone)); // Find & Updated Drone to DB
+
+router.get('/drones', catchErrors(droneController.getDrones));
+router.get('/drones/:id/edit', catchErrors(droneController.renderEditDrone));
 
 // router.get('/confirm-payment', catchErrors(droneController.confirmPayment));
 // router.get('/order-status', catchErrors(droneController.orderStatus));

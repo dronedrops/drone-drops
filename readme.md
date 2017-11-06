@@ -53,6 +53,12 @@ You will need to enable static maps for your API key.
 
 Once you have the API key, simply place it in your `variables.env` file and restart.
 
+### Order of Longitude & Lattitude
+We follow mongo's convention in this project.
+```
+let mongodb = Long & Lat;
+let restOfTheWorld = Lat & Long;
+```
 ### I'm getting errors related to `/data/db` like `code:100` and `connection failed`
 
 Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mongod-complains-that-there-is-no-data-db-folder#answer-7948986) on stack overflow to get mongoDB running locally.

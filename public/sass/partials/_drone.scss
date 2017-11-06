@@ -55,7 +55,9 @@
   font-size: 10px;
   svg {
     width: 25px;
-    fill: white
+    fill: $blue;
+    margin-top: 10px;
+    
   }
   &--edit {
     a {
@@ -95,6 +97,7 @@
     display: block;
     color: #777;
     margin: 10px auto;
+    max-height: 160px;
   }
   p {
     text-align: center;

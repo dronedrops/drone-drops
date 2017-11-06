@@ -22,6 +22,6 @@ exports.siteName = `Drone Drops`;
 
 exports.menu = [
   { slug: '/search-drones', title: 'Search', icon: 'search', },
-  { slug: '/add-drone', title: 'Add', icon: 'add', }
-  
+  { slug: '/update-drone', title: 'Add', icon: 'add', },
+  { slug: '/drones', title: 'Drones', icon: 'drones', }
 ];

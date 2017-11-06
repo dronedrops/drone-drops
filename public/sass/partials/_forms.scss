@@ -2,7 +2,7 @@ input,
 textarea {
     width: 100%;
     border: 0px;
-    border-bottom: 1px solid $blue;
+    border: 1px solid $blue;
     font-family: 'Roboto Mono', 'Rubrik', sans-serif;
     font-size: 1.15em;
     line-height: 1.5;
@@ -13,6 +13,10 @@ textarea {
     }
 }
 
+input:focus {
+    background: $field-grey;
+}
+
 input#photo {
     border: 0;
 }
@@ -20,8 +24,7 @@ input#photo {
 label {
     padding: 20px 0 10px 0;
     display: block;
-    font-size: 1.25em;
-    font-weight: bold;
+    font-size: 1em;
     color: $blue;
 }
 
