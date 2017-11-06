@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Drone = mongoose.model('Drone');
 
 exports.landing = (req,res) => {
-    res.render('landing');
+    res.render('landing', { title: 'Home'});
 } 
 
 /**
