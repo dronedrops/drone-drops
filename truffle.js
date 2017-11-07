@@ -9,7 +9,7 @@ module.exports = {
       network_id: '*' // Match any network id
     },
     aws: {
-      host: 'amazon instance',
+      host: 'http://52.15.181.237',
       port: 8545,
       network_id: '*' // Match any network id
     }
