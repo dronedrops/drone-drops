@@ -119,3 +119,22 @@ exports.searchDrones = async (req, res) => {
 		.limit(3);
 	res.json(drones);
 };
+
+
+exports.findNearbyDrones = async (req,res) => {
+	const coordinates = [req.query.lng, req.query.lat].map(parseFloat);
+	const query = {
+		location: {
+			$near: {
+				$geometry: {
+					type: 'Point',
+					coordinates
+				},
+				$maxDistance: 10000 // 10km
+			}
+		}
+	}
+
+	const drones = await Drone.find(query).select('slug name location photo');
+	res.json(drones);
+}

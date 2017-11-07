@@ -26,4 +26,6 @@ router.get('/drone/:slug', catchErrors(droneController.getDroneBySlug));
 // API Routes
 router.get('/api/search', catchErrors(droneController.searchDrones));
 
+router.get('/api/drones/near', catchErrors(droneController.findNearbyDrones));
+
 module.exports = router;

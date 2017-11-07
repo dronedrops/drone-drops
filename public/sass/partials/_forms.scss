@@ -14,7 +14,7 @@ textarea {
     }
 }
 
-input:focus {
+input[text]:focus {
     background: $field-grey;
 }
 

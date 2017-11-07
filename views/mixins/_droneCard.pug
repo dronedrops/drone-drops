@@ -5,6 +5,8 @@ mixin droneCard(drone = {})
                 a(href=`/drones/${drone._id}/edit`)
                     != h.icon('pencil')
             img(src=`/uploads/${drone.photo || 'drone.png'}`)
+            p #{drone.name}
+            p #{drone.location.address}
             p Capacity - #{drone.capacity} lbs
         .drone__details
             a(href=`/drone/${drone.slug}`) #{drone.eth} ETH

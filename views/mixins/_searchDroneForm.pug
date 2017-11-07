@@ -1,19 +1,17 @@
 mixin searchDroneForm(drone = {})
         //- From address, long, lat
         //- .card
-        form(action=`/search-drones/`, method="GET" class="card")
+        .card
             label(for='address') Pickup From
-            input(type="text" id="fromAddress" name="fromAddress" class="search-address" placeholder="Enter Pickup Location" value="Paris")
-            input(type="hidden" id="fromLongLat" name="fromLongLat" value="2.352221900000017,48.85661400000001" )
+            input(type="text" id="fromAddress" name="fromAddress" class="search-address" placeholder="Enter Pickup Location" value="")
+            input(type="hidden" id="fromLng" name="fromLng" value="" ) 
+            input(type="hidden" id="fromLat" name="fromLat" value="" )
 
             //- address, long, lat
             label(for='address') Deliver To
-            input(type="text" id="toAddress" name="toAddress" class="search-address" placeholder="Enter Delivery Location" value="London")
-            input(type="hidden" id="toLongLat" name="toLongLat" value="2.352221900000017,48.85661400000001" )
+            input(type="text" id="toAddress" name="toAddress" class="search-address" placeholder="Enter Delivery Location" value="")
+            input(type="hidden" id="toLng" name="toLng"  value="") 
+            input(type="hidden" id="toLat" name="toLat" value="") 
 
-            input(type="submit", value="Search Drones" class="submitButton")
+            input(type="button", value="Search Drones" class="submitButton" id="searchDrones")
 
-        //- input(type="hidden" id="fromLng" name="fromLng" value="2.3522219000000177" ) 
-        //- input(type="hidden" id="fromLat" name="fromLat" value="48.85661400000001" )
-        //- input(type="hidden" id="toLng" name="toLng"  value="") 
-        //- input(type="hidden" id="toLat" name="toLat" value="") 
