@@ -8,5 +8,35 @@ block content
     .single__details.inner
         img.single__map(src=h.staticMap(drone.location.coordinates))
         p.single__location= drone.location.address
-        p Delivery Charge #{drone.eth}
-        p Capacity #{drone.capacity}
+    
+        .single__drones
+            .single__drone
+                .single__drone__hero
+                    != h.icon('add')
+                    h4 #{drone.eth} ETH
+                    p Delivery Charge
+            .single__drone
+                .single__drone__hero
+                    != h.icon('add')
+                    h4 #{drone.capacity} lbs
+                    p Capacity
+            .single__drone
+                .single__drone__hero
+                    != h.icon('add')
+                    h4 #{drone.capacity} Hrs
+                    p Flight time
+            .single__drone
+                .single__drone__hero
+                    != h.icon('add')
+                    h4 Built-In
+                    p GPS
+            .single__drone
+                .single__drone__hero
+                    != h.icon('add')
+                    h4 16MP
+                    p Camera
+            .single__drone
+                .single__drone__hero
+                    != h.icon('add')
+                    h4 Yes
+                    p LiveStream

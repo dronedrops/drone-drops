@@ -30,7 +30,7 @@
         position: absolute;
     }
     &__details {
-        background: white; // clip-path: polygon(0px 2vw, 100% 0, 100% calc(100% - 2vw), 0% 100%);
+        // background: white; // clip-path: polygon(0px 2vw, 100% 0, 100% calc(100% - 2vw), 0% 100%);
         position: relative;
         padding: 3rem;
         margin-top: -10rem;
@@ -41,17 +41,17 @@
         max-width: none;
         margin-top: -3rem;
         margin-left: -3rem;
+        margin-bottom: -4rem;
     }
     &__location {
         margin: 0;
-        margin-top: -3rem;
-        margin-right: -5rem;
+        margin-right: -10rem;
         background: $blue;
         color: white;
         display: inline-block;
         float: right;
         position: relative;
-        padding: 1rem;
+        padding: 1.5rem;
         @media all and (max-width: 850px) {
             margin-right: 0;
         }
