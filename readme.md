@@ -25,7 +25,7 @@ testrpc
 ### 1. Installation
 
 ```bash
-npm run start
+npm run dev
 ```
 
 

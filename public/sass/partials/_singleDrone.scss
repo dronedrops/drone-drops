@@ -68,7 +68,8 @@
 .single__drone__hero {
     position: relative;
     padding: 0 10px 0 10px;
-    text-align: center; // &:before {
+    text-align: center;
+    color: $grey; // &:before {
     //   display: block;
     //   content: '';
     //   position: absolute;
