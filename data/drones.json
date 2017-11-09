@@ -1,74 +1,98 @@
 [
 	{
-		"_id": "59ff75081117c74d4da2c772",
-		"slug": "Zeus",
-		"accountId": "0xd12d3a4e5965ec1057956fa7b46fd5caec0a484e",
-		"name": "Zeus",
+		"_id": "5a00ed806a765a39bda055be",
+		"slug": "royal-drone",
+		"accountId": "Royal Drone",
+		"name": "Royal Drone",
+		"capacity": 12,
+		"eth": 21,
+		"photo": "494d7e1b-6c15-4b72-a0d1-dceb5e195593.jpeg",
+		"created": "2017-11-06T23:17:20.322Z",
+		"location": {
+			"type": "Point",
+			"coordinates": [-0.08653000000003885, 51.5136799],
+			"address": "Royal Exchange, London, United Kingdom"
+		},
+		"__v": 0
+	},
+	{
+		"_id": "5a02018284f73267e9d91934",
+		"slug": "fenchurch-drone",
+		"accountId": "Fenchurch Drone",
+		"name": "Fenchurch Drone",
+		"capacity": 32,
+		"eth": 43,
+		"photo": "561975c2-ffa2-4032-803f-cabaa31dfeb2.jpeg",
+		"created": "2017-11-07T18:54:58.840Z",
+		"location": {
+			"address": "Fenchurch Street, London, United Kingdom",
+			"coordinates": [-0.08101799999997183, 51.5118683],
+			"type": "Point"
+		},
+		"__v": 0
+	},
+	{
+		"_id": "5a0201b384f73267e9d91935",
+		"slug": "leeds-drone",
+		"accountId": "Leeds Drone",
+		"name": "Leeds Drone",
 		"capacity": 23,
 		"eth": 43,
-		"photo": "drone1.jpeg",
-		"__v": 0,
-		"created": "2017-11-05T20:31:04.403Z",
+		"photo": "29c94693-a7ec-4fc4-ab3f-5b05afd7a758.jpeg",
+		"created": "2017-11-07T18:55:47.745Z",
 		"location": {
-			"address": "Fenchurch Street London",
-			"coordinates": [-73.4545, 4.3435],
-			"type": "Point"
-		}
-	},
-	{
-		"_id": "58c039ee8060197ca0b52d4e",
-		"accountId": "",
-		"capacity": "200 ",
-		"eth": "0.43",
-		"location": {
-			"address": "The French, King William Street, Hamilton, ON, Canada",
-			"coordinates": [-79.8674666, 43.257414],
+			"address": "Leeds LS9 8BD, United Kingdom",
+			"coordinates": [-1.5320222999999942, 53.79446710000001],
 			"type": "Point"
 		},
-		"name": "Atom",
-		"photo": "drone2.jpeg",
-		"slug": "drone-2"
+		"__v": 0
 	},
 	{
-		"_id": "58c03a428060197ca0b52d4f",
-		"accountId": "",
-		"capacity": "300 ",
-		"eth": "0.46",
+		"_id": "5a0201dc84f73267e9d91936",
+		"slug": "st-pauls-drone",
+		"accountId": "St.Pauls Drone",
+		"name": "St.Pauls Drone",
+		"capacity": 67,
+		"eth": 76,
+		"photo": "619e64f9-2fde-41bb-9247-ded4dc89d005.jpeg",
+		"created": "2017-11-07T18:56:28.796Z",
 		"location": {
-			"address": "The French, King William Street, Hamilton, ON, Canada",
-			"coordinates": [-79.8674666, 43.257414],
-			"type": "Point"
+			"type": "Point",
+			"coordinates": [-0.0983506000000034, 51.5138453],
+			"address": "St.Pauls' Cathedral, London, United Kingdom"
 		},
-		"name": "Hawk Eye",
-		"photo": "drone3.jpeg",
-		"slug": "drone-3"
+		"__v": 0
 	},
 	{
-		"_id": "58c03a958060197ca0b52d50",
-		"accountId": "",
-		"capacity": "6",
-		"eth": "0.76",
+		"_id": "5a02020b84f73267e9d91937",
+		"slug": "scottish-drone",
+		"accountId": "Scotland Drone",
+		"name": "Scottish Drone",
+		"capacity": 65,
+		"eth": 74,
+		"photo": "2ae5208b-854a-4e44-956f-8d49fdaa6298.png",
+		"created": "2017-11-07T18:57:15.556Z",
 		"location": {
-			"address": "27 King William Street, Hamilton, ON, Canada",
-			"coordinates": [-79.8677515, 43.2574964],
+			"address": "The Royal Mile, Edinburgh, United Kingdom",
+			"coordinates": [-3.1862965999999915, 55.95034200000001],
 			"type": "Point"
 		},
-		"name": "Eva",
-		"photo": "bot1.png",
-		"slug": "bot-1"
+		"__v": 0
 	},
 	{
-		"_id": "58c057838060197ca0b52d54",
-		"accountId": "",
-		"capacity": "90 ",
-		"eth": "0.49",
+		"_id": "5a02023784f73267e9d91938",
+		"slug": "kings-cross-drone",
+		"accountId": "Kings Cross Drone",
+		"name": "Kings Cross Drone",
+		"capacity": 87,
+		"eth": 98,
+		"photo": "3579d03e-7486-4cc0-b811-301a0404795e.png",
+		"created": "2017-11-07T18:57:59.295Z",
 		"location": {
-			"address": "31 King William St, Hamilton, ON, Canada",
-			"coordinates": [-79.86767780000002, 43.25747380000001],
+			"address": "Kings Cross, London, United Kingdom",
+			"coordinates": [-0.13223119999997834, 51.5333335],
 			"type": "Point"
 		},
-		"name": "Midas",
-		"photo": "bot2.png",
-		"slug": "bot-2"
+		"__v": 0
 	}
 ]
