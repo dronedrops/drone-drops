@@ -1,0 +1,19 @@
+version: '2'
+services:
+      testrpc:
+        build: ./testrpc
+        container_name: "testrpc"
+        ports:
+            - 8585:8585
+        command: testrpc --account="0xaa73b5c98e60d589e71ce7cff59c02f82e12c7ce676ee356da8e058a285ccd61,100000" --account="0x2ac7167d1ef34f87cb4b9081d36433ae62d9fbae66775dfc10c4c1c761274315,100" --account="0x4a52a68efa12187e57a923fce3673fdab2b31b633e75101233b85c5fa7545451,100"
+      mongodb:
+        build: ./mongodb
+        container_name: "mongodb"
+        ports:
+            - 27017:27017
+        environment:
+            - MONGODB_USERNAME=myusername
+            - MONGODB_PASSWORD=mypassword
+            - MONGODB_DBNAME=mydb
+        volumes:
+            - ./mongodb/data/db:/data
