@@ -22,6 +22,21 @@ testrpc
 
 ### 4. Run Application
 
+
+### Running testrpc and mongodb as docker container
+```bash
+cd deploy
+docker-compose up
+```
+
+
+### Stopping testrpc and mongodb as docker container
+```bash
+cd deploy
+docker-compose stop
+```
+
+
 ### 1. Installation
 
 ```bash
