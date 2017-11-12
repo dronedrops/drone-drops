@@ -1,19 +1,55 @@
 import { $ } from './bling';
+import { default as Web3 } from 'web3';
+import { default as contract } from 'truffle-contract';
+
+import metaCoinArtifacts from '../../../build/contracts/MetaCoin';
+
+var accounts;
+var account;
+var MetaCoin = TruffleContract(metaCoinArtifacts);
 
 function init() {
 
-};
+	MetaCoin.setProvider(web3.currentProvider);
+
+	web3.eth.getAccounts(function(err, accs) {
+		if (err != null) {
+			alert('There was an error fetching your accounts.');
+			return;
+		}
+
+		if (accs.length == 0) {
+			alert("Couldn't get any accounts! Make sure your Ethereum client is configured correctly.");
+			return;
+		}
+
+		accounts = accs;
+		account = accounts[0];
+		console.log(account);
+		refreshBalance();
+	});
+}
+
+async function refreshBalance() {
+	try {
+		let meta = await MetaCoin.deployed();
+		let balance = await meta.getBalance.call(web3.eth.accounts[0]);
+		console.log(balance.valueOf());
+	} catch (error) {
+		console.log(`Error: ${error.message}`);
+	}
+}
 
 function placeOrder() {
 	console.log('Initiate Order');
 }
 
 function confirmPayment() {
-    // Initiate placeOrder here.
-    console.log('Confirm Payment Clicked');
+	// Initiate placeOrder here.
+	init();
+	console.log('Confirm Payment Clicked');
 }
 
-//template for placeOrder
 
 /*
 async placeOrder() { 
@@ -43,6 +79,5 @@ async placeOrder() {
       console.log(`Error: ${error.message}`);
     }
 } */
-
 
 export default confirmPayment;
