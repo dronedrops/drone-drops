@@ -10,7 +10,7 @@ var MetaCoin = TruffleContract(metaCoinArtifacts);
 
 function init() {
 
-  MetaCoin.setProvider(web3.currentProvider);
+	MetaCoin.setProvider(web3.currentProvider);
 
 	web3.eth.getAccounts(function(err, accs) {
 		if (err != null) {
@@ -30,22 +30,14 @@ function init() {
 	});
 }
 
-function refreshBalance() {
-	var meta;
-	MetaCoin.deployed()
-		.then(function(instance) {
-			meta = instance;
-			return meta.getBalance.call(account, { from: account });
-		})
-		.then(function(value) {
-			// var balance_element = document.getElementById('balance');
-      // balance_element.innerHTML = value.valueOf();
-      console.log( value.valueOf());
-		})
-		.catch(function(e) {
-			console.log(e);
-			console.log('Error getting balance; see log.');
-		});
+async function refreshBalance() {
+	try {
+		let meta = await MetaCoin.deployed();
+		let balance = await meta.getBalance.call(web3.eth.accounts[0]);
+		console.log(balance.valueOf());
+	} catch (error) {
+		console.log(`Error: ${error.message}`);
+	}
 }
 
 function placeOrder() {
@@ -58,7 +50,6 @@ function confirmPayment() {
 	console.log('Confirm Payment Clicked');
 }
 
-//template for placeOrder
 
 /*
 async placeOrder() { 
