@@ -9,7 +9,8 @@
     "start": "node ./start.js",
     "watch": "nodemon ./start.js --ignore public/",
     "watch-debug": "nodemon --debug-brk=5858 ./start.js --ignore public/",
-    "dev": "concurrently \"npm run watch\" \"npm run assets\" --names \"✈️,📦\" --prefix name",
+    "dev1": "concurrently \"npm run watch\" \"npm run assets\" --names \"✈️,📦\" --prefix name",
+    "dev": "webpack-dev-server",
     "debug": "node --inspect-brk start",
     "assets": "webpack -w --display-max-modules 0",
     "sample": "node ./data/load-sample-data.js",
@@ -23,6 +24,7 @@
     "connect-flash": "0.1.1",
     "connect-mongo": "1.3.2",
     "cookie-parser": "1.4.3",
+    "copy-webpack-plugin": "^4.2.0",
     "dompurify": "0.8.5",
     "dotenv": "4.0.0",
     "es6-promisify": "5.0.0",
@@ -49,7 +51,8 @@
     "truffle-contract": "^3.0.1",
     "uuid": "3.0.1",
     "validator": "7.0.0",
-    "web3": "^1.0.0-beta.24"
+    "web3": "^1.0.0-beta.24",
+    "webpack-dev-server": "^2.9.4"
   },
   "devDependencies": {
     "autoprefixer": "6.7.7",
