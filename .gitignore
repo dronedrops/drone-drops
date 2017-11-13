@@ -7,3 +7,6 @@ variables.env
 variables.env.now
 public/dist/*
 build/contracts
+build/*
+package-lock.json
+deploy/mongodb/data/db/*
