@@ -8,7 +8,7 @@ block content
     .single__details.inner
         img.single__map(src=h.staticMap(drone.location.coordinates))
         p.single__location= drone.location.address
-    
+
         .single__drones
             .single__drone
                 .single__drone__hero
@@ -40,5 +40,7 @@ block content
                     != h.icon('add')
                     h4 Yes
                     p LiveStream
-
+        .flash-messages(id='confirmPaymentErr' hidden)
+          Err.flash.flash--error
+              p.flash__text Oops! Unable to confirm the payment in network
         input(type="button", value="Confirm Pay" class="submitButton" id="confirmPayment")
