@@ -95,6 +95,7 @@ Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mong
 - [] Lego Door - Motor/Pulley Control through JS
 - [] BLE - Authentication
 - [] Rpi - Scanning Program
+- [] Rpi - Image burning - Nodejs installation - BLE Setup
 - [] RPi - BLE Setup
 - [] RPi - Node-program to `updateDelivery` & `validateOrder` Tasks
     - Option 3. MacBook -> Node API -> TestRPC
