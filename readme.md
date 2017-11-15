@@ -109,6 +109,7 @@ Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mong
 - ❌ Pagewise UX/UI Check. 
 - ❌ SVG Icons Updates
 - ❌ Landing Page - UI Update + Product Features + Team Photo
+- ❌ Hi-Res Drone Images
 - ✅ MongoDB - Schema Update to include additional Details of Drone, (`droneId (mambo-0702) , droneEthAccount, FlightHours, GpsBuiltIn, CameraFacility`)
 - ❌ Clear unused npm packages from packages.json
 - ❌ Host the node-app & mongo-api in Heroku/Now

@@ -18,7 +18,7 @@
 		"droneId": "Mambo-0702",
 		"flightHours": "10 Hrs",
 		"gps": "No",
-		"camera": "5MP",
+		"camera": "5 MP",
 		"liveStreaming": "No"
 	},
 	{
@@ -40,7 +40,7 @@
 		"droneId": "elite-0702",
 		"flightHours": "9 Hrs",
 		"gps": "Built-In",
-		"camera": "12MP",
+		"camera": "12 MP",
 		"liveStreaming": "Yes"
 	},
 	{
@@ -62,7 +62,7 @@
 		"droneId": "Elite-Jungle-0114",
 		"flightHours": "6 Hrs",
 		"gps": "Built-In",
-		"camera": "14MP",
+		"camera": "14 MP",
 		"liveStreaming": "Yes"
 	},
 	{
@@ -84,7 +84,7 @@
 		"droneId": "Zeus-0930",
 		"flightHours": "6Hrs",
 		"gps": "Built-In",
-		"camera": "6MP",
+		"camera": "6 MP",
 		"liveStreaming": "Yes"
 	},
 	{
@@ -106,7 +106,7 @@
 		"droneId": "McLaren-Mambo-1907",
 		"flightHours": "7 Hrs",
 		"gps": "Add-On",
-		"camera": "8MP",
+		"camera": "8 MP",
 		"liveStreaming": "No"
 	},
 	{
@@ -128,7 +128,7 @@
 		"droneId": "Titan-0205",
 		"flightHours": "10 Hrs",
 		"gps": "Built-In",
-		"camera": "16MP",
+		"camera": "16 MP",
 		"liveStreaming": "Yes"
 	}
 ]
