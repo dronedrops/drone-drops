@@ -7,13 +7,19 @@
 		"capacity": 12,
 		"eth": 21,
 		"photo": "494d7e1b-6c15-4b72-a0d1-dceb5e195593.jpeg",
+		"__v": 0,
 		"created": "2017-11-06T23:17:20.322Z",
 		"location": {
 			"type": "Point",
 			"coordinates": [-0.08653000000003885, 51.5136799],
 			"address": "Royal Exchange, London, United Kingdom"
 		},
-		"__v": 0
+		"droneEthAccount": "0x5cb0d48c5a61593612166399b332d0f389e53127",
+		"droneId": "Mambo-0702",
+		"flightHours": "10 Hrs",
+		"gps": "No",
+		"camera": "5 MP",
+		"liveStreaming": "No"
 	},
 	{
 		"_id": "5a02018284f73267e9d91934",
@@ -23,13 +29,19 @@
 		"capacity": 32,
 		"eth": 43,
 		"photo": "561975c2-ffa2-4032-803f-cabaa31dfeb2.jpeg",
+		"__v": 0,
 		"created": "2017-11-07T18:54:58.840Z",
 		"location": {
-			"address": "Fenchurch Street, London, United Kingdom",
+			"type": "Point",
 			"coordinates": [-0.08101799999997183, 51.5118683],
-			"type": "Point"
+			"address": "Fenchurch Street, London, United Kingdom"
 		},
-		"__v": 0
+		"droneEthAccount": "0x106cfcd1da7861448133962fb01cb184f8e1bee2",
+		"droneId": "elite-0702",
+		"flightHours": "9 Hrs",
+		"gps": "Built-In",
+		"camera": "12 MP",
+		"liveStreaming": "Yes"
 	},
 	{
 		"_id": "5a0201b384f73267e9d91935",
@@ -39,13 +51,19 @@
 		"capacity": 23,
 		"eth": 43,
 		"photo": "29c94693-a7ec-4fc4-ab3f-5b05afd7a758.jpeg",
+		"__v": 0,
 		"created": "2017-11-07T18:55:47.745Z",
 		"location": {
-			"address": "Leeds LS9 8BD, United Kingdom",
+			"type": "Point",
 			"coordinates": [-1.5320222999999942, 53.79446710000001],
-			"type": "Point"
+			"address": "Leeds LS9 8BD, United Kingdom"
 		},
-		"__v": 0
+		"droneEthAccount": "0x8df26425caa3b9b59ff124520747c2d1b4c3ae06",
+		"droneId": "Elite-Jungle-0114",
+		"flightHours": "6 Hrs",
+		"gps": "Built-In",
+		"camera": "14 MP",
+		"liveStreaming": "Yes"
 	},
 	{
 		"_id": "5a0201dc84f73267e9d91936",
@@ -55,13 +73,19 @@
 		"capacity": 67,
 		"eth": 76,
 		"photo": "619e64f9-2fde-41bb-9247-ded4dc89d005.jpeg",
+		"__v": 0,
 		"created": "2017-11-07T18:56:28.796Z",
 		"location": {
 			"type": "Point",
 			"coordinates": [-0.0983506000000034, 51.5138453],
 			"address": "St.Pauls' Cathedral, London, United Kingdom"
 		},
-		"__v": 0
+		"droneEthAccount": "0x5a0a07f4fb474449759edb2f1e07aea08bda662f",
+		"droneId": "Zeus-0930",
+		"flightHours": "6Hrs",
+		"gps": "Built-In",
+		"camera": "6 MP",
+		"liveStreaming": "Yes"
 	},
 	{
 		"_id": "5a02020b84f73267e9d91937",
@@ -71,13 +95,19 @@
 		"capacity": 65,
 		"eth": 74,
 		"photo": "2ae5208b-854a-4e44-956f-8d49fdaa6298.png",
+		"__v": 0,
 		"created": "2017-11-07T18:57:15.556Z",
 		"location": {
-			"address": "The Royal Mile, Edinburgh, United Kingdom",
+			"type": "Point",
 			"coordinates": [-3.1862965999999915, 55.95034200000001],
-			"type": "Point"
+			"address": "The Royal Mile, Edinburgh, United Kingdom"
 		},
-		"__v": 0
+		"droneEthAccount": "0xe1240df33dde21e53d510358794ac2635a2675e3",
+		"droneId": "McLaren-Mambo-1907",
+		"flightHours": "7 Hrs",
+		"gps": "Add-On",
+		"camera": "8 MP",
+		"liveStreaming": "No"
 	},
 	{
 		"_id": "5a02023784f73267e9d91938",
@@ -87,12 +117,18 @@
 		"capacity": 87,
 		"eth": 98,
 		"photo": "3579d03e-7486-4cc0-b811-301a0404795e.png",
+		"__v": 0,
 		"created": "2017-11-07T18:57:59.295Z",
 		"location": {
-			"address": "Kings Cross, London, United Kingdom",
+			"type": "Point",
 			"coordinates": [-0.13223119999997834, 51.5333335],
-			"type": "Point"
+			"address": "Kings Cross, London, United Kingdom"
 		},
-		"__v": 0
+		"droneEthAccount": "0x849eb0b46f31fd0e36b49b678d95cb8a8c26476d",
+		"droneId": "Titan-0205",
+		"flightHours": "10 Hrs",
+		"gps": "Built-In",
+		"camera": "16 MP",
+		"liveStreaming": "Yes"
 	}
 ]

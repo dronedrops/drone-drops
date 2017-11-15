@@ -1,21 +1,31 @@
 mixin droneForm(drone = {})
     //- enctype="multipart/form-data"
     form(action=`/update-drone/${drone._id || ''}`, method="post" class="card" enctype="multipart/form-data")
-        label(for="accountId") AccountId
-        input(type="text" name="accountId"  value=drone.accountId)
+        label(for="droneEthAccount") DroneEthAccount
+        input(type="text" name="droneEthAccount"  value=drone.droneEthAccount)
         label(for="name") Name
-        input(type="text" name="name" value=drone.name) 
+        input(type="text" name="name" value=drone.name)
+        label(for="droneId") Drone ID (Mambo-0702)
+        input(type="text" name="droneId" value=drone.droneId)
         label(for="capacity") Capacity
         input(type="text" name="capacity" value=drone.capacity)
         label(for="eth") ETH
-        input(type="text" name="eth" value=drone.eth) 
+        input(type="text" name="eth" value=drone.eth)
+        label(for="flightHours") Flight Hours
+        input(type="text" name="flightHours" value=drone.flightHours)
+        label(for="gps") GPS Built-In
+        input(type="text" name="gps" value=drone.gps)
+        label(for="camera") Camera Resolution
+        input(type="text" name="camera" value=drone.camera)
+        label(for="liveStreaming") Live Streaming
+        input(type="text" name="liveStreaming" value=drone.liveStreaming)
         //- address, long, lat
         label(for='address') Address
         input(type="text" id="address" name="location[address]" value=(drone.location && drone.location.address))
         label(for='lng') Address Longitude
-        input(type="text" id="lng" name="location[coordinates][0]"  value=(drone.location && drone.location.coordinates[0])) 
+        input(type="text" id="lng" name="location[coordinates][0]"  value=(drone.location && drone.location.coordinates[0]))
         label(for='lat') Address Lattitude
-        input(type="text" id="lat" name="location[coordinates][1]" value=(drone.location && drone.location.coordinates[1])) 
+        input(type="text" id="lat" name="location[coordinates][1]" value=(drone.location && drone.location.coordinates[1]))
         //- image upload
         label(for="photo") Photo
         input(type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg")
