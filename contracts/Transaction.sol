@@ -65,11 +65,13 @@ contract Transaction is OwnerAction {
                 OrderValidated(droneId, consumerEth);
                 return true;
         }
+        // TODO update mapping here?
         return false;
     }
     
     event OrderStatusUpdated(uint256 orderId, address consumerEth, uint256 droneId, string nodeLocation);
     function updateOrderStatus(uint256 orderId, uint256 droneId, address consumerEth, string nodeLocation) public {
+        // TODO update mapping here?
         Order currentOrder = orderDetails[orderId-salt];
         require(Status.Open == currentOrder.status);
         require(droneId == currentOrder.droneId);
