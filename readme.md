@@ -109,7 +109,7 @@ Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mong
 - [] Pagewise UX/UI Check. 
 - [] SVG Icons Updates
 - [] Landing Page - UI Update + Product Features + Team Photo
-- [] MongoDB - Schema Update to include additional Details of Drone, (`DroneEthAccount, FlightHours, GpsBuiltIn, CameraFacility`)
+- [] MongoDB - Schema Update to include additional Details of Drone, (`droneId (mambo-0702) , droneEthAccount, FlightHours, GpsBuiltIn, CameraFacility`)
 - [] Clear unused npm packages from packages.json
 - [] Host the node-app & mongo-api in Heroku/Now
 - [] Add Everis/Barcelona location based drones to MongoDB Stub Data
@@ -134,3 +134,4 @@ Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mong
 - [] Test - E2E Integration
 - [] Arch & Tech Diagram - Draft
 - [] Possibility of Google Actions or Alexa Skill to open door.
+- [] slide preparation

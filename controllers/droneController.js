@@ -43,10 +43,12 @@ exports.renderSearchDrone = (req, res) => {
 };
 
 exports.confirmPayment = (req, res) => {
+	//TODO
 	res.render('confirm-payment');
 };
 
 exports.orderStatus = (req, res) => {
+	//TODO
 	res.render('order-status');
 };
 
@@ -138,3 +140,7 @@ exports.findNearbyDrones = async (req,res) => {
 	const drones = await Drone.find(query).select('slug name location photo');
 	res.json(drones);
 }
+
+exports.validateOrder = async (req, res) => {
+	console.log(req.query.droneId, req.query.consumerEth);
+};
