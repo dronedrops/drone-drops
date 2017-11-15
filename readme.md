@@ -86,52 +86,52 @@ Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mong
 ## ToDo
 
 ### thiru
-- [X] Mambo Orchestration
-- [X] Node App - Meta Coin
-- [X] Node App - Meta Mask Integration
-- [X] Search Drone based on co-ords
-- [] Mambo Grabber & Cannon Control through JS
-- [] Lego Doors - Construction
-- [] Lego Door - Motor/Pulley Control through JS
-- [] BLE - Authentication
-- [] Rpi - Scanning Program
-- [] Rpi - Image burning - Nodejs installation - BLE Setup
-- [] RPi - BLE Setup
-- [] RPi - Node-program to `updateDelivery` & `validateOrder` Tasks
+- ✅ Mambo Orchestration
+- ✅ Node App - Meta Coin
+- ✅ Node App - Meta Mask Integration
+- ✅ Search Drone based on co-ords
+- ❌ Mambo Grabber & Cannon Control through JS
+- ❌ Lego Doors - Construction
+- ❌ Lego Door - Motor/Pulley Control through JS
+- ❌ BLE - Authentication
+- ❌ Rpi - Scanning Program
+- ❌ Rpi - Image burning - Nodejs installation - BLE Setup
+- ❌ RPi - BLE Setup
+- ❌ RPi - Node-program to `updateDelivery` & `validateOrder` Tasks
     - Option 3. MacBook -> Node API -> TestRPC
     - Option 2. RPi -> Node API -> TestRPC
     - Option 1. RPi - > TestRPC
     - Dependency
         - Resolve TestRPC connectivity among all devices. 
         - Run in same network or (AWS Test RPC + Heroku NodeAPI)
-- [] 💄 Toast Messages.
-- [] 💄 Floating - Labels
-- [] Pagewise UX/UI Check. 
-- [] SVG Icons Updates
-- [] Landing Page - UI Update + Product Features + Team Photo
-- [] MongoDB - Schema Update to include additional Details of Drone, (`droneId (mambo-0702) , droneEthAccount, FlightHours, GpsBuiltIn, CameraFacility`)
-- [] Clear unused npm packages from packages.json
-- [] Host the node-app & mongo-api in Heroku/Now
-- [] Add Everis/Barcelona location based drones to MongoDB Stub Data
-- [] Slide Diagrams
-- [] Slide Animations + GIF with - gowtham
+- ❌ 💄 Toast Messages.
+- ❌ 💄 Floating - Labels
+- ❌ Pagewise UX/UI Check. 
+- ❌ SVG Icons Updates
+- ❌ Landing Page - UI Update + Product Features + Team Photo
+- ✅ MongoDB - Schema Update to include additional Details of Drone, (`droneId (mambo-0702) , droneEthAccount, FlightHours, GpsBuiltIn, CameraFacility`)
+- ❌ Clear unused npm packages from packages.json
+- ❌ Host the node-app & mongo-api in Heroku/Now
+- ❌ Add Everis/Barcelona location based drones to MongoDB Stub Data
+- ❌ Slide Diagrams
+- ❌ Slide Animations + GIF with - gowtham
 
 ### jerome + dinesh
-- [X] Transaction Contracts - Init
-- [] Escrow Management
+- ✅ Transaction Contracts - Init
+- ❌ Escrow Management
 - [>] API Calls to trigger Drone Fly. 🎫 Revisit with proper orchestration.
-- [] Run TestRPC with Stubbed accounts.
-- [] Map TestRpc accounts with DroneMongoDB.
-- [] Negative scenario - Contract
-- [] Elite + BLE Integration
-- [] Elite + GPS Integration
-- [] Add Pickup Point co-ords to confirm pay page
-- [] Happy Day Flow `placeOrder` integration with NodeAPI
+- ❌ Run TestRPC with Stubbed accounts.
+- ❌ Map TestRpc accounts with DroneMongoDB.
+- ❌ Negative scenario - Contract
+- ❌ Elite + BLE Integration
+- ❌ Elite + GPS Integration
+- ❌ Add Pickup Point co-ords to confirm pay page
+- ❌ Happy Day Flow `placeOrder` integration with NodeAPI
 
 
 ### gowtham & Team
-- [] Host - AWS Test RPC + Integration
-- [] Test - E2E Integration
-- [] Arch & Tech Diagram - Draft
-- [] Possibility of Google Actions or Alexa Skill to open door.
-- [] slide preparation
+- ❌ Host - AWS Test RPC + Integration
+- ❌ Test - E2E Integration
+- ❌ Arch & Tech Diagram - Draft
+- ❌ Possibility of Google Actions or Alexa Skill to open door.
+- ❌ slide preparation

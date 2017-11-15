@@ -3,18 +3,45 @@ mongoose.Promise = global.Promise; // Use ES6 Promise
 const slug = require('slugs'); // URL friendly names 
 
 const droneSchema = new mongoose.Schema({
-	accountId: {
+	droneEthAccount: {
 		type: String,
 		trim: true,
 		required: 'Please enter account Id from TestRPC!'
+	},
+	name: {
+		type: String,
+		trim: true,
+		required: 'Please enter a Drone name!'
+	},
+	droneId: {
+		type: String,
+		trim: true,
+		required: 'Please enter drone Id. e.g.Mambo-0702!'
 	},
 	capacity: {
 		type: Number,
 		required: 'Please enter capacity(max.weight Drone can carry) in lbs'
 	},
+	flightHours: {
+		type: String,
+		trim: true,
+		required: 'Please enter flight hours. e.g.10 Hrs!'
+	},
 	eth: {
 		type: Number,
 		required: 'Please enter ETH amount'
+	},
+	gps: {
+		type: String,
+		required: "Please enter Yes or No"
+	},
+	camera: {
+		type: String,
+		required: "Please enter Yes or No"
+	},
+	liveStreaming: {
+		type: String,
+		required: "Please enter Yes or No"
 	},
 	location: {
 		type: {
@@ -31,11 +58,6 @@ const droneSchema = new mongoose.Schema({
 			type: String,
 			required: 'You must supply an address!'
 		}
-	},
-	name: {
-		type: String,
-		trim: true,
-		required: 'Please enter a Drone name!'
 	},
 	photo: String,
 	slug: String,

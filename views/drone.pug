@@ -23,22 +23,22 @@ block content
             .single__drone
                 .single__drone__hero
                     != h.icon('add')
-                    h4 #{drone.capacity} Hrs
+                    h4 #{drone.flightHours}
                     p Flight time
             .single__drone
                 .single__drone__hero
                     != h.icon('add')
-                    h4 Built-In
+                    h4 #{drone.gps}
                     p GPS
             .single__drone
                 .single__drone__hero
                     != h.icon('add')
-                    h4 16MP
+                    h4 #{drone.camera}
                     p Camera
             .single__drone
                 .single__drone__hero
                     != h.icon('add')
-                    h4 Yes
+                    h4 #{drone.liveStreaming}
                     p LiveStream
         .flash-messages(id='confirmPaymentErr' hidden)
           Err.flash.flash--error
