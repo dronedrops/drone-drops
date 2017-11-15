@@ -5,7 +5,8 @@ import "./OwnerAction.sol";
 contract Transaction is OwnerAction {
     
     uint256 salt = 1;
-    
+    mapping(uint256 => uint256) droneOrderMapping;
+
     struct Order {
         uint256 orderId;
         string pickupFrom; // Pickup Location of Drone. CSV of address,lat,lng
@@ -37,6 +38,7 @@ contract Transaction is OwnerAction {
         sendInitialStake();
         orderDetails.push(order);
         var orderIdVal = order.orderId;
+        droneOrderMapping[droneId] = orderIdVal;
         OrderCreated(orderIdVal, consumerEth);
         return orderIdVal;
     }
@@ -55,13 +57,13 @@ contract Transaction is OwnerAction {
     }
 
     function validateOpenOrderStatus(uint256 droneId, address consumerEth) public constant returns (bool val) {
-        Order currentOrder;
-        for (var index = 0; index < orderDetails.length; index++) {
-            currentOrder = orderDetails[index];
-            if(currentOrder.status == Status.Open && currentOrder.droneId == droneId) {
+        var mappedOrderId = droneOrderMapping[droneId];
+        require(mappedOrderId >= 0);
+        Order currentOrder = orderDetails[mappedOrderId - salt];
+        require(currentOrder.orderId >= 0);
+        if(currentOrder.status == Status.Open && currentOrder.droneId == droneId) {
                 OrderValidated(droneId, consumerEth);
                 return true;
-            }
         }
         return false;
     }
