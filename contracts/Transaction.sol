@@ -43,8 +43,9 @@ contract Transaction is OwnerAction {
         return orderIdVal;
     }
     
-    function sendInitialStake() {
-        owner.transfer(msg.value);
+    function sendInitialStake()  payable {
+        this.transfer(msg.value);
+        //owner.transfer(msg.value);
     }
     
     event OrderValidated(uint256 droneId, address consumerEth);
@@ -80,7 +81,6 @@ contract Transaction is OwnerAction {
         
         address droneEthAccount = currentOrder.droneEthAccount;
         droneEthAccount.transfer(currentOrder.transactionPrice);
-        owner.transfer(-currentOrder.transactionPrice);
         OrderStatusUpdated(orderId, consumerEth, droneId, nodeLocation);
     }
     
@@ -99,6 +99,9 @@ contract Transaction is OwnerAction {
         refundTo.transfer(currentOrder.transactionPrice);
         owner.transfer(-currentOrder.transactionPrice);
         OrderReverted(orderId, consumerEth);
+    }
+    function () payable {
+        
     }
     
     function destroy() public ownerAction {
