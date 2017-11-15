@@ -7,6 +7,7 @@ contract Transaction is OwnerAction {
     uint256 salt = 1;
     
     struct Order {
+        uint256 orderId;
         string pickupFrom; // Pickup Location of Drone. CSV of address,lat,lng
         string deliverTo; // Delivery Location CSV of address,lat,lng
         uint256 transactionPrice;
@@ -32,11 +33,12 @@ contract Transaction is OwnerAction {
             throw;
         }
         //var order = Order(pickupFrom, deliverTo, msg.value, droneId, consumerEth, senderEth, droneEth, Status.Open);
-        var order = Order(pickupFrom, deliverTo, msg.value, droneId, consumerEth, senderEth, droneEth, Status.Open);
-        orderId = orderDetails.push(order) + salt;
+        var order = Order(orderDetails.length+salt, pickupFrom, deliverTo, msg.value, droneId, consumerEth, senderEth, droneEth, Status.Open);
         sendInitialStake();
-        OrderCreated(orderId, consumerEth);
-        return orderId;
+        orderDetails.push(order);
+        var orderIdVal = order.orderId;
+        OrderCreated(orderIdVal, consumerEth);
+        return orderIdVal;
     }
     
     function sendInitialStake() {
@@ -50,6 +52,18 @@ contract Transaction is OwnerAction {
         require(droneId == currentOrder.droneId);
         OrderValidated(droneId, consumerEth);
         return true;
+    }
+
+    function validateOpenOrderStatus(uint256 droneId, address consumerEth) public constant returns (bool val) {
+        Order currentOrder;
+        for (var index = 0; index < orderDetails.length; index++) {
+            currentOrder = orderDetails[index];
+            if(currentOrder.status == Status.Open && currentOrder.droneId == droneId) {
+                OrderValidated(droneId, consumerEth);
+                return true;
+            }
+        }
+        return false;
     }
     
     event OrderStatusUpdated(uint256 orderId, address consumerEth, uint256 droneId, string nodeLocation);
