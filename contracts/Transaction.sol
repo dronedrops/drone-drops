@@ -19,15 +19,29 @@ contract Transaction is OwnerAction {
         Status status;
     }
     
-    Order[] public orderDetails;
+    Order[]  orderDetails;
     
     enum Status { Open, Closed }
     
-   function Transaction() public {
+    function Transaction() payable {
         owner = msg.sender;
     }
     
-    // confirm-payment initiates this. 
+   event OrderValidated(uint256 droneId, address consumerEth);
+    function validateOpenOrderStatus(uint256 droneId, address consumerEth) public payable  returns (uint orderId) {
+        var mappedOrderId = droneOrderMapping[droneId];
+      require(mappedOrderId >= 0);
+      Order currentOrder = orderDetails[mappedOrderId - salt];
+        require(currentOrder.orderId >= 0);
+        if(uint(currentOrder.status) == uint(Status.Open) && currentOrder.droneId == droneId) {
+               OrderValidated(droneId, consumerEth);
+                return currentOrder.orderId;
+        }
+        // TODO update mapping here?
+        return 0;
+    }
+    
+     // confirm-payment initiates this. 
     event OrderCreated(uint256 orderId, address consumerEthAccount);
     function placeOrder(string pickupFrom, string deliverTo, uint256 droneId, address consumerEth, address senderEth, address droneEth) public payable returns (uint256 orderId) {
         if (msg.value <= 0) {
@@ -47,27 +61,7 @@ contract Transaction is OwnerAction {
         owner.transfer(msg.value);
     }
     
-    event OrderValidated(uint256 droneId, address consumerEth);
-    function validateOpenOrder(uint256 orderId, uint256 droneId, address consumerEth) public constant returns (bool val) {
-        Order currentOrder = orderDetails[orderId-salt];
-        require(Status.Open == currentOrder.status);
-        require(droneId == currentOrder.droneId);
-        OrderValidated(droneId, consumerEth);
-        return true;
-    }
-
-    function validateOpenOrderStatus(uint256 droneId, address consumerEth) public constant returns (bool val) {
-        var mappedOrderId = droneOrderMapping[droneId];
-        require(mappedOrderId >= 0);
-        Order currentOrder = orderDetails[mappedOrderId - salt];
-        require(currentOrder.orderId >= 0);
-        if(currentOrder.status == Status.Open && currentOrder.droneId == droneId) {
-                OrderValidated(droneId, consumerEth);
-                return true;
-        }
-        // TODO update mapping here?
-        return false;
-    }
+      
     
     event OrderStatusUpdated(uint256 orderId, address consumerEth, uint256 droneId, string nodeLocation);
     function updateOrderStatus(uint256 orderId, uint256 droneId, address consumerEth, string nodeLocation) public {
@@ -104,4 +98,7 @@ contract Transaction is OwnerAction {
     function destroy() public ownerAction {
         selfdestruct(owner);
     }
+    
+
+  
 }
