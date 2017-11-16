@@ -135,4 +135,4 @@ Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mong
 - ❌ Test - E2E Integration
 - ❌ Arch & Tech Diagram - Draft
 - ❌ Possibility of Google Actions or Alexa Skill to open door.
-- ❌ slide preparation
+- ❌ Slide preparation
