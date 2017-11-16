@@ -22,9 +22,9 @@ h5,
 h6,
 {
     font-size: 5rem;
-    font-family: 'Roboto Mono', 'Rubrik', sans-serif;
+    font-family: $drone-font;
     font-weight: 600;
-    letter-spacing: -1px;
+    letter-spacing: .05rem;
 }
 
 a {

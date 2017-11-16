@@ -28,7 +28,7 @@ img {
    ========================================================================== */
 
 html {
-    font-family: 'Roboto Mono', 'Rubrik', sans-serif;
+    font-family: $drone-font;
     line-height: 1.15;
     /* 2 */
     -ms-text-size-adjust: 100%;
@@ -73,6 +73,7 @@ section {
 h1 {
     font-size: 2em;
     margin: 0.67em 0;
+    letter-spacing: .06rem;
 }
 
 

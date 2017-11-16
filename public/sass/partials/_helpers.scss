@@ -7,7 +7,7 @@
   border: 0;
   background: $yellow;
   color: $black;
-  font-family: 'Roboto Mono', 'Rubrik', sans-serif;
+  font-family: $drone-font;
   font-weight: 600;
 }
 
@@ -15,7 +15,7 @@
   border: 0;
   background: $blue;
   color: $white;
-  font-family: 'Roboto Mono', 'Rubrik', sans-serif;
+  font-family: $drone-font;
   font-weight: 600;
   margin-top: 10px;
   font-size: 3rem;
