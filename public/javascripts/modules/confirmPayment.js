@@ -50,15 +50,16 @@ function placeOrder() {
 
 function confirmPayment() {
     init();
-    console.log(`confirm Payment from account ${account}`);
+    let errMsg = $('#confirmPaymentErr');
+    clearErrors(errMsg);
     DroneDrops.deployed().then(function(instance) {
         var drone = instance.placeOrder(
             "ls101ea",
             "ls1010lj",
             123,
-            accounts[1],
-            accounts[2],
-            accounts[3], {
+            "0x14723a09acff6d2a60dcdf7aa4aff308fddc160c",
+            "0x4b0897b0513fdc7c541b6d9d7e929c4e5364d2db",
+            "0x583031d1113ad414f02576bd6afabfb302140225", {
                 from: account,
                 value: 50000000000000000,
                 gas: 300000
@@ -68,10 +69,11 @@ function confirmPayment() {
     }).then(function(value) {
         console.log('Order created in the Blockchain!!!');
         console.log(value.valueOf());
-        validateOpenOrder();
+        // TODO: call API to make the drones fly.
     }).catch(function(e) {
-        console.log(e);
-        console.log('Unable to create Order. Check above error.');
+        console.error(e);
+        console.error('Unable to create Order. Check above error.');
+        showErrors(errMsg);
     });
 }
 
