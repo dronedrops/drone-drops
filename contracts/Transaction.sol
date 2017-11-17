@@ -70,8 +70,8 @@ contract Transaction is OwnerAction {
         //require(nodeLocation == currentOrder.deliverTo);
         currentOrder.status = Status.Closed;
         //finaliseStake(currentOrder);
-        address droneEthAccount = currentOrder.droneEthAccount;
-        droneEthAccount.transfer(currentOrder.transactionPrice);
+        // address droneEthAccount = currentOrder.droneEthAccount;
+        // droneEthAccount.transfer(currentOrder.transactionPrice);
         OrderStatusUpdated(orderId, consumerEth, droneId, nodeLocation);
     }
     

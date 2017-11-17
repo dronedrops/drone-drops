@@ -3,6 +3,14 @@ const Drone = mongoose.model('Drone');
 const multer = require('multer');
 const jimp = require('jimp');
 const uuid = require('uuid');
+const Web3 = require('web3');
+const contract = require('truffle-contract');
+
+const fs = require('fs');
+const fsdata = fs.readFileSync('build/contracts/Transaction.json', 'utf8');
+const Transaction_json = JSON.parse(fsdata);
+const DroneOrderTransaction = contract(Transaction_json);
+DroneOrderTransaction.setProvider(new Web3.providers.HttpProvider('http://localhost:8545'));
 
 /* helper for Image Uploading */
 const multerOptions = {
@@ -122,8 +130,7 @@ exports.searchDrones = async (req, res) => {
 	res.json(drones);
 };
 
-
-exports.findNearbyDrones = async (req,res) => {
+exports.findNearbyDrones = async (req, res) => {
 	const coordinates = [req.query.lng, req.query.lat].map(parseFloat);
 	const query = {
 		location: {
@@ -135,12 +142,50 @@ exports.findNearbyDrones = async (req,res) => {
 				$maxDistance: 10000 // 10km
 			}
 		}
-	}
+	};
 
 	const drones = await Drone.find(query).select('slug name location photo');
 	res.json(drones);
-}
+};
 
-exports.validateOrder = async (req, res) => {
-	console.log(req.query.droneId, req.query.consumerEth);
+exports.validateOrder =  async (req, res) => {
+	DroneOrderTransaction.deployed()
+		.then(function(instance) {
+			var response = instance.validateOpenOrderStatus.call(req.query.droneId, req.query.consumerEth, {
+				from: req.query.consumerEth,
+				value: 0,
+				gas: 300000
+			});
+			return response;
+		})
+		.then(function(value) {
+			let orderId = value.valueOf();
+			// updateOrderStatus(orderId);
+			res.json({ orderId });
+		})
+		.catch(function(e) {
+			console.log('Unable to validate created Order', e);
+		});
+};
+
+exports.updateOrderStatus =  async (req, res) => {
+	DroneOrderTransaction.deployed()
+	.then(function(instance) {
+		var result = instance.updateOrderStatus.call(req.query.orderId, req.query.droneId, req.query.consumerEth, req.query.deliverToPostCode, {
+			from: req.query.consumerEth,
+			value: 0,
+			gas: 300000
+		});
+		return result;
+	})
+	.then(function(value) {
+		console.log('Order updated at the Blockchain!!!');
+		console.log(value.valueOf());
+		let orderId = value.valueOf();
+		req.flash('success', `Order Closed.`);	
+		res.render('order-status');
+	})
+	.catch(function(e) {
+		console.log('Unable to update Order', e);
+	});
 };
