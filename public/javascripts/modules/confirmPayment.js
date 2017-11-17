@@ -2,18 +2,14 @@ import { $ } from './bling';
 import { default as Web3 } from 'web3';
 import { default as contract } from 'truffle-contract';
 
-import metaCoinArtifacts from '../../../build/contracts/MetaCoin';
 import transactionArtifacts from '../../../build/contracts/Transaction';
 
 var accounts;
 var account;
-var order;
-var MetaCoin = TruffleContract(metaCoinArtifacts);
 var DroneDrops = TruffleContract(transactionArtifacts);
 
 function init() {
 
-    MetaCoin.setProvider(web3.currentProvider);
     DroneDrops.setProvider(web3.currentProvider);
 
     web3.eth.getAccounts(function(err, accs) {
@@ -30,22 +26,7 @@ function init() {
         accounts = accs;
         account = accounts[0];
         console.log(account);
-        refreshBalance();
     });
-}
-
-async function refreshBalance() {
-    try {
-        let meta = await MetaCoin.deployed();
-        let balance = await meta.getBalance.call(web3.eth.accounts[0]);
-        console.log(balance.valueOf());
-    } catch (error) {
-        console.log(`Error: ${error.message}`);
-    }
-}
-
-function placeOrder() {
-    console.log('Initiate Order');
 }
 
 function confirmPayment() {
@@ -75,6 +56,16 @@ function confirmPayment() {
         console.error('Unable to create Order. Check above error.');
         showErrors(errMsg);
     });
+}
+
+function showErrors(errMsg) {
+    errMsg.removeAttribute('hidden');
+}
+
+function clearErrors(errMsg) {
+    if (!errMsg.hasAttribute('hidden')) {
+        errMsg.setAttribute('hidden', true);
+    }
 }
 
 function validateOpenOrder() {
