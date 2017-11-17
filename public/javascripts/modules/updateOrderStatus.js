@@ -27,14 +27,18 @@ function init() {
 
 function updateOrderStatus() {
     init();
-    console.log(`Updating order details ${account}`);
+    console.log(`Updating order details ${accounts[3]}`);
     DroneDrops.deployed().then(function(instance) {
-        var result = instance.validateOpenOrder(1, 123, accounts[3]);
+        var result = instance.updateOrderStatus(1, '123', accounts[1], {
+            from: accounts[1],
+            value: 50000000000000000,
+            gas: 300000
+        });
         return result;
     }).then(function(value) {
-        console.log('Order validated from the Blockchain!!!');
+        console.log('Order updated at the Blockchain!!!');
         console.log(value);
     }).catch(function(e) {
-        console.log('Unable to validate created Order', e);
+        console.log('Unable to update Order', e);
     });
 }

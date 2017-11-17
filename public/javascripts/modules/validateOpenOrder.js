@@ -29,13 +29,18 @@ function init() {
 
 function validateOpenOrder() {
     init();
-    console.log(`validating order details ${account}`);
+    console.log(`validating order details ${accounts[3]}`);
     DroneDrops.deployed().then(function(instance) {
-        var result = instance.validateOpenOrder(1, 123, accounts[3]);
+        var result = instance.validateOpenOrderStatus(123, accounts[3], {
+            from: account,
+            value: 0,
+            gas: 300000
+        });
         return result;
     }).then(function(value) {
         console.log('Order validated from the Blockchain!!!');
         console.log(value);
+        updateOrderStatus();
     }).catch(function(e) {
         console.log('Unable to validate created Order', e);
     });
