@@ -29,7 +29,7 @@ function updateOrderStatus() {
     init();
     console.log(`Updating order details ${accounts[3]}`);
     DroneDrops.deployed().then(function(instance) {
-        var result = instance.updateOrderStatus(1, '123', accounts[1], {
+        var result = instance.updateOrderStatus(1, '123', "ls101ea", accounts[1], {
             from: accounts[1],
             value: 50000000000000000,
             gas: 300000

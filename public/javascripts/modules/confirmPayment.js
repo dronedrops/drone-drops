@@ -51,6 +51,7 @@ function confirmPayment() {
         console.log('Order created in the Blockchain!!!');
         console.log(value.valueOf());
         // TODO: call API to make the drones fly.
+        validateOpenOrder();
     }).catch(function(e) {
         console.error(e);
         console.error('Unable to create Order. Check above error.');
@@ -89,7 +90,7 @@ function validateOpenOrder() {
 function updateOrderStatus() {
     console.log(`Updating order details ${accounts[3]}`);
     DroneDrops.deployed().then(function(instance) {
-        var result = instance.updateOrderStatus(1, '123', accounts[1], {
+        var result = instance.updateOrderStatus(1, '123', accounts[1], "ls101ea", {
             from: accounts[1],
             value: 50000000000000000,
             gas: 300000
