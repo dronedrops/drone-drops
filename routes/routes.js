@@ -32,8 +32,10 @@ router.get('/api/drones/near', catchErrors(droneController.findNearbyDrones));
 // http://localhost:7777/api/validateOrder?droneId=123&consumerEth=0x6fc532b497073b0f0c612a369beea7d541538a58
 router.get('/api/validateOrder', catchErrors(droneController.validateOrder));
 
-// http://localhost:7777/api/updateOrderStatus?orderId=123&droneId=123&consumerEth=0x6fc532b497073b0f0c612a369beea7d541538a58&deliverToPostCode=ls101ea
+// http://localhost:7777/api/updateOrderStatus?orderId=20&droneId=456&consumerEth=0x6fc532b497073b0f0c612a369beea7d541538a58&deliverToPostCode=ls101ea
 router.get('/api/updateOrderStatus', catchErrors(droneController.updateOrderStatus));
 
+// http://localhost:7777/api/asyncUpdateOrderStatus?orderId=20&droneId=456&consumerEth=0x6fc532b497073b0f0c612a369beea7d541538a58&deliverToPostCode=ls101ea
+router.get('/api/asyncUpdateOrderStatus', catchErrors(droneController.asyncUpdateOrderStatus));
 
 module.exports = router;

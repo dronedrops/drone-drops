@@ -148,24 +148,15 @@ exports.findNearbyDrones = async (req, res) => {
 	res.json(drones);
 };
 
-exports.validateOrder =  async (req, res) => {
-	DroneOrderTransaction.deployed()
-		.then(function(instance) {
-			var response = instance.validateOpenOrderStatus.call(req.query.droneId, req.query.consumerEth, {
-				from: req.query.consumerEth,
-				value: 0,
-				gas: 300000
-			});
-			return response;
-		})
-		.then(function(value) {
-			let orderId = value.valueOf();
-			// updateOrderStatus(orderId);
-			res.json({ orderId });
-		})
-		.catch(function(e) {
-			console.log('Unable to validate created Order', e);
-		});
+exports.validateOrder = async (req, res, next) => {
+	let droneDrop = await DroneOrderTransaction.deployed();
+	let orderStatus = await droneDrop.validateOpenOrderStatus.call(req.query.droneId, req.query.consumerEth, {
+		from: req.query.consumerEth,
+		value: 0,
+		gas: 300000
+	});
+	let orderId = orderStatus.valueOf();
+	res.json({ orderId });
 };
 
 exports.updateOrderStatus =  async (req, res) => {
@@ -188,4 +179,22 @@ exports.updateOrderStatus =  async (req, res) => {
 	.catch(function(e) {
 		console.log('Unable to update Order', e);
 	});
+};
+
+exports.asyncUpdateOrderStatus = async (req, res) => {
+	let droneDrop = await DroneOrderTransaction.deployed();
+	let updateOrderStatus = await droneDrop.updateOrderStatus.call(
+		req.query.orderId,
+		req.query.droneId,
+		req.query.consumerEth,
+		req.query.deliverToPostCode,
+		{
+			from: req.query.consumerEth,
+			value: 0,
+			gas: 300000
+		}
+	);
+	let orderStatus = updateOrderStatus.valueOf();
+	req.flash('success', `Order Closed.`);
+	res.render('order-status');
 };
