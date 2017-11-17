@@ -5,6 +5,8 @@ const jimp = require('jimp');
 const uuid = require('uuid');
 const Web3 = require('web3');
 const contract = require('truffle-contract');
+const mambo = require('./flyMambo');
+const elite = require('./flyElite');
 
 const fs = require('fs');
 const fsdata = fs.readFileSync('build/contracts/Transaction.json', 'utf8');
@@ -199,4 +201,17 @@ exports.asyncUpdateOrderStatus = async (req, res) => {
 	res.render('order-status', { title: 'Order Status' });
 	
 };
+
+
+exports.flyElite = async (req, res) => {
+	elite.flyElite();
+	res.json({elite: "flying"});
+};
+
+exports.flyMambo = async (req, res) => {
+	mambo.fly();
+	res.json({mambo: "flying"});
+};
+
+
 

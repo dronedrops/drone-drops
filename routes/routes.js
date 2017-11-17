@@ -38,4 +38,8 @@ router.get('/api/updateOrderStatus', catchErrors(droneController.updateOrderStat
 // http://localhost:7777/api/asyncUpdateOrderStatus?orderId=20&droneId=456&consumerEth=0x6fc532b497073b0f0c612a369beea7d541538a58&deliverToPostCode=ls101ea
 router.get('/api/asyncUpdateOrderStatus', catchErrors(droneController.asyncUpdateOrderStatus));
 
+router.get('/api/flyElite', catchErrors(droneController.flyElite));
+
+router.get('/api/flyMambo', catchErrors(droneController.flyMambo));
+
 module.exports = router;

@@ -13,7 +13,7 @@ if (noble.state === 'poweredOn') {
 	noble.on('stateChange', start);
 }
 
-function start() {
+exports.scanBleDevices = function() {
 	noble.startScanning();
 
 	noble.on('discover', function(peripheral) {
@@ -33,6 +33,7 @@ function start() {
 		} else {
 			console.log('Close the door');
 		}
+		return details.uuid;
 	});
 }
 

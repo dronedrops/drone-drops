@@ -90,33 +90,35 @@ Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mong
 - ✅ Node App - Meta Coin
 - ✅ Node App - Meta Mask Integration
 - ✅ Search Drone based on co-ords
-- ❌ Mambo Grabber & Cannon Control through JS
-- ❌ Lego Doors - Construction
+- ✅ Lego Doors Base Version - Construction
+- ✅ Rpi - Image burning - Nodejs installation - BLE Setup
+- ✅ SVG Icons Updates
+- ✅ RPi - BLE Setup
+- ✅ MongoDB - Schema Update to include additional Details of Drone, (`droneId (mambo-0702) , droneEthAccount, FlightHours, GpsBuiltIn, CameraFacility`)
+- ❌ Lego Motion Sensor Detection
+- `LegoController getOpenOrderId() updateOrderStatus()` - req, res
 - ❌ Lego Door - Motor/Pulley Control through JS
 - ❌ BLE - Authentication
 - ❌ Rpi - Scanning Program
-- ❌ Rpi - Image burning - Nodejs installation - BLE Setup
-- ❌ RPi - BLE Setup
 - ❌ RPi - Node-program to `updateDelivery` & `validateOrder` Tasks
-    - Option 3. MacBook -> Node API -> TestRPC
+    - ✅ Option 3. MacBook -> Node API -> TestRPC
     - Option 2. RPi -> Node API -> TestRPC
+        - Write a Client.
     - Option 1. RPi - > TestRPC
     - Dependency
         - Resolve TestRPC connectivity among all devices. 
         - Run in same network or (AWS Test RPC + Heroku NodeAPI)
-- ❌ 💄 Toast Messages.
-- ❌ 💄 Floating - Labels
-- ❌ Pagewise UX/UI Check. 
-- ✅ SVG Icons Updates
-- ❌ Landing Page - UI Update + Product Features + Team Photo
-- ❌ Hi-Res Drone Images
-- ✅ MongoDB - Schema Update to include additional Details of Drone, (`droneId (mambo-0702) , droneEthAccount, FlightHours, GpsBuiltIn, CameraFacility`)
-- ❌ Clear unused npm packages from packages.json
-- ❌ Host the node-app & mongo-api in Heroku/Now
 - ❌ Add Everis/Barcelona location based drones to MongoDB Stub Data
+- ❌ Pagewise UX/UI Check. 
+- ❌ Hi-Res Drone Images
 - ❌ Slide Diagrams
 - ❌ Slide Animations + GIF with - gowtham
 - ❌ Expose ETH Accounts to MongoDB API
+- ❌ Landing Page - UI Update + Product Features + Team Photo
+- ❌ Host the node-app & mongo-api in Heroku/Now
+- ❌ 💄 Toast Messages.
+- ❌ 💄 Floating - Labels
+- ❌ Clear unused npm packages from packages.json
 
 ### jerome + dinesh
 - ✅ Transaction Contracts - Init
@@ -137,5 +139,3 @@ Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mong
 - ❌ Slide preparation
 - ❌ Test - E2E Integration
 - ❌ Possibility of Google Actions or Alexa Skill to open door.
-
-
