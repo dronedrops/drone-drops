@@ -13,15 +13,22 @@ wedo2.on('battery', function(status, uuid) {
 	console.log('Battery: ' + status + '% @ ' + uuid);
 });
 
-wedo2.on('button', function(button, uuid) {
-	console.log('button state: ' + button + ' @ ' + uuid);
-	let speed = button ? 100 : 0;
-	wedo2.setMotor(speed, 1, uuid);
-});
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+async function runMotorAndStop(uuid) {
+	console.log('this might take some time....');
+	wedo2.setMotor(100, 1, uuid);
+	await delay(4000);
+	console.log('done!');
+	wedo2.setMotor(0, 1, uuid);
+}
 
 wedo2.on('port', function(port, connected, type, uuid) {
 	if (connected) {
 		console.log('Found ' + type + ' on port ' + port + ' @ ' + uuid);
+		//TODO: RxJS Based Observable API.
+		//TODO: If(validOrder) { runMotorAndStop();}
+		runMotorAndStop(uuid);
 	} else {
 		console.log('Disconnected ' + type + ' on port ' + port + ' @ ' + uuid);
 	}
