@@ -51,6 +51,7 @@ function confirmPayment() {
 	}).then(function (value) {
 		console.log('Order created in the Blockchain!!!');
 		console.log(value.valueOf());
+		// TODO: call API to make the drones fly.
 	}).catch(function (e) {
 		console.error(e);
 		console.error('Unable to create Order. Check above error.');

@@ -107,7 +107,7 @@ Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mong
 - ❌ 💄 Toast Messages.
 - ❌ 💄 Floating - Labels
 - ❌ Pagewise UX/UI Check. 
-- ❌ SVG Icons Updates
+- ✅ SVG Icons Updates
 - ❌ Landing Page - UI Update + Product Features + Team Photo
 - ❌ Hi-Res Drone Images
 - ✅ MongoDB - Schema Update to include additional Details of Drone, (`droneId (mambo-0702) , droneEthAccount, FlightHours, GpsBuiltIn, CameraFacility`)
@@ -116,23 +116,26 @@ Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mong
 - ❌ Add Everis/Barcelona location based drones to MongoDB Stub Data
 - ❌ Slide Diagrams
 - ❌ Slide Animations + GIF with - gowtham
+- ❌ Expose ETH Accounts to MongoDB API
 
 ### jerome + dinesh
 - ✅ Transaction Contracts - Init
-- ❌ Escrow Management
-- [>] API Calls to trigger Drone Fly. 🎫 Revisit with proper orchestration.
-- ❌ Run TestRPC with Stubbed accounts.
-- ❌ Map TestRpc accounts with DroneMongoDB.
-- ❌ Negative scenario - Contract
-- ❌ Elite + BLE Integration
-- ❌ Elite + GPS Integration
-- ❌ Add Pickup Point co-ords to confirm pay page
 - ❌ Happy Day Flow `placeOrder` integration with NodeAPI
+- ❌ API Calls to trigger Drone Fly. Revisit with proper orchestration.
+- ❌ Negative scenario - Contract
+- ❌ Run TestRPC with Stubbed accounts.
+- ❌ Map TestRpc accounts with DroneMongoDB. - Thiru
+- ❌ Elite + BLE Integration
+- ❌ Escrow Management
+- ❌ Add Pickup Point co-ords to confirm pay page - dinesh ???
 
 
 ### gowtham & Team
-- ❌ Host - AWS Test RPC + Integration
-- ❌ Test - E2E Integration
+- ❌ ValidateOrder API
+- ❌ Host - AWS Test RPC + Integration - Truffle Migration Issue.
 - ❌ Arch & Tech Diagram - Draft
-- ❌ Possibility of Google Actions or Alexa Skill to open door.
 - ❌ Slide preparation
+- ❌ Test - E2E Integration
+- ❌ Possibility of Google Actions or Alexa Skill to open door.
+
+
