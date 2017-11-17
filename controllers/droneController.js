@@ -174,7 +174,7 @@ exports.updateOrderStatus =  async (req, res) => {
 		console.log(value.valueOf());
 		let orderId = value.valueOf();
 		req.flash('success', `Order Closed.`);	
-		res.render('order-status');
+		res.render('order-status', { title: 'Order Status' });
 	})
 	.catch(function(e) {
 		console.log('Unable to update Order', e);
@@ -196,5 +196,7 @@ exports.asyncUpdateOrderStatus = async (req, res) => {
 	);
 	let orderStatus = updateOrderStatus.valueOf();
 	req.flash('success', `Order Closed.`);
-	res.render('order-status');
+	res.render('order-status', { title: 'Order Status' });
+	
 };
+
