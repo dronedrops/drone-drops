@@ -81,14 +81,16 @@ contract Transaction is OwnerAction {
     }*/
     
     event OrderReverted(uint256 orderId, address consumerEth);
-    function revertPlacedOrder(uint256 orderId, address consumerEth) public {
-        Order currentOrder = orderDetails[orderId-salt];
+    function revertPlacedOrder(string droneId, address consumerEth) public {
+        var mappedOrderId = droneOrderMapping[droneId];
+        require(mappedOrderId >= 0);
+        Order currentOrder = orderDetails[mappedOrderId - salt];
+        require(currentOrder.orderId >= 0);
         require(Status.Open == currentOrder.status);
-        currentOrder.status = Status.Closed;
         address refundTo = currentOrder.senderEthAccount;
+        currentOrder.status = Status.Closed;
         refundTo.transfer(currentOrder.transactionPrice);
-        owner.transfer(-currentOrder.transactionPrice);
-        OrderReverted(orderId, consumerEth);
+        OrderReverted(mappedOrderId, consumerEth);
     }
     function () payable {
         
