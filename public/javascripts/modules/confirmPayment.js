@@ -54,8 +54,7 @@ function confirmPayment() {
 			console.log('Order created in the Blockchain!!!');
 			console.log('Tx Ref', value.valueOf());
 			$('#placeOrderForm').submit();
-			// TODO: 1. call API to make the drones fly.
-			// TODO: 2. updateStatus('Order Picked Up');
+			// TODO: updateStatus('Order Picked Up');
 		})
 		.catch(function(e) {
 			console.error(e);

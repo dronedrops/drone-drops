@@ -8,6 +8,7 @@ const rollingSpider = new RollingSpider();
 exports.fly = function() {
 	console.log('Fly Mambo');
 	rollingSpider.connect(function() {
+		console.log('Connected To Mambo');
 		rollingSpider.setup(function() {
 			rollingSpider.flatTrim();
 			rollingSpider.startPing();
@@ -19,18 +20,22 @@ exports.fly = function() {
 					task: function() {
 						rollingSpider.takeOff();
 						rollingSpider.flatTrim();
+						console.log('Mambo Took Off');
 					}
 				},
 				{
 					delay: 5000,
 					task: function() {
 						rollingSpider.forward();
+						console.log('Mambo In Transit');
+						
 					}
 				},
 				{
 					delay: 5000,
 					task: function() {
 						rollingSpider.land();
+						console.log('Mambo Landed');
 					}
 				},
 				{
