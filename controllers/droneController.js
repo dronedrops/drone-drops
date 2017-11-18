@@ -62,10 +62,6 @@ exports.orderStatus = (req, res) => {
 	res.render('order-status');
 };
 
-exports.ethDemo = (req, res) => {
-	res.render('eth-demo');
-};
-
 /** Helper Routers. For Dev purpose only. */
 
 // Render Drone Form in addMode

@@ -5,7 +5,6 @@ const { catchErrors } = require('../handlers/errorHandlers');
 
 router.get('/', droneController.landing);
 router.get('/search-drones', droneController.renderSearchDrone);
-router.get('/eth-demo', droneController.ethDemo);
 
 /** Helper Routers. For Dev purpose only. */
 

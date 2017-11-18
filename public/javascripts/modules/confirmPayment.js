@@ -52,7 +52,7 @@ function confirmPayment() {
 		})
 		.then(function(value) {
 			console.log('Order created in the Blockchain!!!');
-			console.log(value.valueOf());
+			console.log('Tx Ref', value.valueOf());
 			// TODO: 1. call API to make the drones fly.
 			// TODO: 2. updateStatus('Order Picked Up');
 		})
