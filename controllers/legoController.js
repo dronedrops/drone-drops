@@ -3,9 +3,11 @@ var wedo2 = new Wedo2('LPF2');
 var identifyDrone = require('./identifyDrone');
 var flyMambo = require('./flyMambo');
 var request = require('request');
+var rp = require('request-promise');
 
 var consumerEth = '0x14723a09acff6d2a60dcdf7aa4aff308fddc160c';
 var deliverToPostCode = 'LS101EA';
+var API_BASE_URL = 'http://localhost:7777/api';
 
 wedo2.on('connected', function(uuid) {
 	console.log('I found a WeDo with uuid: ' + uuid);
@@ -30,19 +32,41 @@ async function openDoor(uuid) {
 	wedo2.setMotor(0, 1, uuid);
 }
 
-function getOpenOrderId(droneUuid, consumerEth) {
-	// http://localhost:7777/api/validateOrder?droneId=123&consumerEth=0x6fc532b497073b0f0c612a369beea7d541538a58
-	// return api.response;
-	request(`http://localhost:7777/api/validateOrder?droneId=${droneUuid}&consumerEth=${consumerEth}`, function (error, response, body) {
-		if (!error && response.statusCode == 200) {
-			console.log(body) // Print the google web page.
-		 }
-	});
-	
+async function getOpenOrderId(droneUUID, consumerEth) {
+	var options = {
+		uri: API_BASE_URL + '/validateOrder',
+		qs: {
+			droneId: droneUUID,
+			consumerEth: consumerEth,
+		},
+		json: true 
+	};
+	try {
+        let response = await rp(options);
+        console.log('Order id is', response.orderId);
+    } catch (error) {
+        console.error(error);
+    } 
 }
 
-function updateOrderStatus(orderId, droneUuid) {
-	// http://localhost:7777/api/updateOrderStatus?orderId=20&droneId=456&consumerEth=0x6fc532b497073b0f0c612a369beea7d541538a58&deliverToPostCode=ls101ea
+function updateOrderStatus(orderId, droneUUID) {
+	var options = {
+		uri: API_BASE_URL + '/updateOrderStatus',
+		qs: {
+			orderId: orderId,
+			droneId: droneUUID,
+			consumerEth: consumerEth,
+			deliverToPostCode: deliverToPostCode,
+		},
+		json: true 
+	};
+	try {
+		let response = await rp(options);
+		console.log(response);
+        // TODO: This has to respond JSON. Returns HTML.
+    } catch (error) {
+        console.error(error);
+    } 
 }
 
 function closeDoor() {
