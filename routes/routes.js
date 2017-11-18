@@ -5,7 +5,6 @@ const { catchErrors } = require('../handlers/errorHandlers');
 
 router.get('/', droneController.landing);
 router.get('/search-drones', droneController.renderSearchDrone);
-router.get('/eth-demo', droneController.ethDemo);
 
 /** Helper Routers. For Dev purpose only. */
 
@@ -21,7 +20,7 @@ router.get('/drones/:id/edit', catchErrors(droneController.renderEditDrone));
 router.get('/drone/:slug', catchErrors(droneController.getDroneBySlug));
 
 router.get('/confirm-payment', catchErrors(droneController.confirmPayment));
-router.get('/order-status', catchErrors(droneController.orderStatus));
+router.get('/order-status', catchErrors(droneController.getOrderStatus));
 
 // API Routes
 router.get('/api/search', catchErrors(droneController.searchDrones));

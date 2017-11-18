@@ -22,7 +22,8 @@ if ($('#searchDrones')) {
 }
 
 if ($('#confirmPayment')) {
-	$('#confirmPayment').on('click', function() {
+	$('#confirmPayment').on('click', function(e) {
+		e.preventDefault();
 		confirmPayment();
 	});
 }

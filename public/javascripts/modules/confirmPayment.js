@@ -43,8 +43,8 @@ function confirmPayment() {
                 CONSUMER_ETH,
                 accounts[1],
                 accounts[2], {
-                    from: accounts[1],
-                    value: 500000000000000000,
+                    from: account,
+                    value: 5000000000000000000,
                     gas: 300000
                 }
             );
@@ -52,10 +52,9 @@ function confirmPayment() {
         })
         .then(function(value) {
             console.log('Order created in the Blockchain!!!');
-            console.log(value.valueOf());
-            // TODO: 1. call API to make the drones fly.
-            // TODO: 2. updateStatus('Order Picked Up');
-            //validateOpenOrder();
+            console.log('Tx Ref', value.valueOf());
+            $('#placeOrderForm').submit();
+            // TODO: updateStatus('Order Picked Up');
         })
         .catch(function(e) {
             console.error(e);
