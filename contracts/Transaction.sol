@@ -62,17 +62,21 @@ contract Transaction is OwnerAction {
     }
     
     event OrderStatusUpdated(uint256 orderId, address consumerEth, string droneId, string nodeLocation);
-    function updateOrderStatus(uint256 orderId, string droneId, address consumerEth, string nodeLocation) public {
+    function updateOrderStatus(uint256 orderId, string droneId, address consumerEth, string nodeLocation) public returns (address droneEthAccounst){
         // TODO update mapping here?
-        Order currentOrder = orderDetails[orderId-salt];
+        //Order currentOrder = orderDetails[orderId-salt];
+        var mappedOrderId = droneOrderMapping[droneId];
+        require(mappedOrderId >= 0);
+        Order currentOrder = orderDetails[mappedOrderId - salt];
         require(Status.Open == currentOrder.status);
         sha3(droneId) == sha3(currentOrder.droneId);
         //require(nodeLocation == currentOrder.deliverTo);
         currentOrder.status = Status.Closed;
         //finaliseStake(currentOrder);
-        // address droneEthAccount = currentOrder.droneEthAccount;
-        // droneEthAccount.transfer(currentOrder.transactionPrice);
-        OrderStatusUpdated(orderId, consumerEth, droneId, nodeLocation);
+        address droneEthAccount = currentOrder.droneEthAccount;
+        droneEthAccount.transfer(currentOrder.transactionPrice);
+        OrderStatusUpdated(mappedOrderId, consumerEth, droneId, nodeLocation);
+        return droneEthAccount;
     }
     
     /*function finaliseStake(Order currentOrder) {
@@ -91,6 +95,10 @@ contract Transaction is OwnerAction {
         currentOrder.status = Status.Closed;
         refundTo.transfer(currentOrder.transactionPrice);
         OrderReverted(mappedOrderId, consumerEth);
+    }
+
+    function getOrderDetails() public returns(Order[] orderDetails) {
+        return orderDetails;
     }
     function () payable {
         
