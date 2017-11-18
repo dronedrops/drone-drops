@@ -20,7 +20,7 @@ router.get('/drones/:id/edit', catchErrors(droneController.renderEditDrone));
 router.get('/drone/:slug', catchErrors(droneController.getDroneBySlug));
 
 router.get('/confirm-payment', catchErrors(droneController.confirmPayment));
-router.get('/order-status', catchErrors(droneController.orderStatus));
+router.get('/order-status', catchErrors(droneController.getOrderStatus));
 
 // API Routes
 router.get('/api/search', catchErrors(droneController.searchDrones));

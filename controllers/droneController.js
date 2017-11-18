@@ -57,10 +57,6 @@ exports.confirmPayment = (req, res) => {
 	res.render('confirm-payment');
 };
 
-exports.orderStatus = (req, res) => {
-	//TODO
-	res.render('order-status');
-};
 
 /** Helper Routers. For Dev purpose only. */
 
@@ -147,36 +143,51 @@ exports.findNearbyDrones = async (req, res) => {
 };
 
 exports.validateOrder = async (req, res, next) => {
+	let orderId = await getOrderId(req, res, next);
+	res.json({ orderId });
+};
+
+async function getOrderId(req, res, next) {
 	let droneDrop = await DroneOrderTransaction.deployed();
 	let orderStatus = await droneDrop.validateOpenOrderStatus.call(req.query.droneId, req.query.consumerEth, {
 		from: req.query.consumerEth,
 		value: 0,
 		gas: 300000
 	});
-	let orderId = orderStatus.valueOf();
-	res.json({ orderId });
+	return orderStatus.valueOf();
+}
+
+exports.getOrderStatus = async (req, res, next) => {
+	let orderId = await getOrderId(req, res, next);
+	res.render('order-status', { title: 'Order Status', orderId });
 };
 
-exports.updateOrderStatus =  async (req, res) => {
+exports.updateOrderStatus = async (req, res) => {
 	DroneOrderTransaction.deployed()
-	.then(function(instance) {
-		var result = instance.updateOrderStatus.call(req.query.orderId, req.query.droneId, req.query.consumerEth, req.query.deliverToPostCode, {
-			from: req.query.consumerEth,
-			value: 0,
-			gas: 300000
+		.then(function(instance) {
+			var result = instance.updateOrderStatus.call(
+				req.query.orderId,
+				req.query.droneId,
+				req.query.consumerEth,
+				req.query.deliverToPostCode,
+				{
+					from: req.query.consumerEth,
+					value: 0,
+					gas: 300000
+				}
+			);
+			return result;
+		})
+		.then(function(value) {
+			console.log('Order updated at the Blockchain!!!');
+			console.log(value.valueOf());
+			let orderId = value.valueOf();
+			req.flash('success', `Order Closed.`);
+			res.render('order-status', { title: 'Order Status' });
+		})
+		.catch(function(e) {
+			console.log('Unable to update Order', e);
 		});
-		return result;
-	})
-	.then(function(value) {
-		console.log('Order updated at the Blockchain!!!');
-		console.log(value.valueOf());
-		let orderId = value.valueOf();
-		req.flash('success', `Order Closed.`);	
-		res.render('order-status', { title: 'Order Status' });
-	})
-	.catch(function(e) {
-		console.log('Unable to update Order', e);
-	});
 };
 
 exports.asyncUpdateOrderStatus = async (req, res) => {
@@ -195,19 +206,14 @@ exports.asyncUpdateOrderStatus = async (req, res) => {
 	let orderStatus = updateOrderStatus.valueOf();
 	req.flash('success', `Order Closed.`);
 	res.render('order-status', { title: 'Order Status' });
-	
 };
-
 
 exports.flyElite = async (req, res) => {
 	elite.flyElite();
-	res.json({elite: "flying"});
+	res.json({ elite: 'flying' });
 };
 
 exports.flyMambo = async (req, res) => {
 	mambo.fly();
-	res.json({mambo: "flying"});
+	res.json({ mambo: 'flying' });
 };
-
-
-
