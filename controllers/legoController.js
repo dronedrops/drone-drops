@@ -3,7 +3,7 @@ var wedo2 = new Wedo2('LPF2');
 var identifyDrone = require('./identifyDrone');
 var flyMambo = require('./flyMambo');
 var request = require('request');
-var rp = require('request-promise');
+const axios = require('axios');
 
 var consumerEth = '0x14723a09acff6d2a60dcdf7aa4aff308fddc160c';
 var deliverToPostCode = 'LS101EA';
@@ -33,44 +33,29 @@ async function openDoor(uuid) {
 }
 
 async function getOpenOrderId(droneUUID, consumerEth) {
-	var options = {
-		uri: API_BASE_URL + '/validateOrder',
-		qs: {
-			droneId: droneUUID,
-			consumerEth: consumerEth,
-		},
-		json: true 
-	};
 	try {
-        let response = await rp(options);
-        console.log('Order id is', response.orderId);
-    } catch (error) {
-        console.error(error);
-    } 
+		let orderStatus = await axios(`${API_BASE_URL}/validateOrder?droneId=${droneUUID}&consumerEth=${consumerEth}`);
+		let orderId = orderStatus.data.orderId;
+		console.log('getOpenOrderId', orderId);
+		return orderId;
+	} catch (error) {
+		console.error(error);
+	}
 }
 
-function updateOrderStatus(orderId, droneUUID) {
-	var options = {
-		uri: API_BASE_URL + '/updateOrderStatus',
-		qs: {
-			orderId: orderId,
-			droneId: droneUUID,
-			consumerEth: consumerEth,
-			deliverToPostCode: deliverToPostCode,
-		},
-		json: true 
-	};
+async function updateOrderStatus(orderId, droneUUID) {
 	try {
-		let response = await rp(options);
-		console.log(response);
-        // TODO: This has to respond JSON. Returns HTML.
-    } catch (error) {
-        console.error(error);
-    } 
+		let updateOrderStatus = await axios(
+			`${API_BASE_URL}/updateOrderStatus?orderId=${orderId}&droneId=${droneUUID}&consumerEth=${consumerEth}&deliverToPostCode=${deliverToPostCode}`
+		);
+		console.log('orderStatus', updateOrderStatus.data.orderStatus);
+	} catch (error) {
+		console.error(error);
+	}
 }
 
 function closeDoor() {
-	console.log('Close the door');
+	//TODO: console.log('Close the door');
 }
 
 wedo2.on('distanceSensor', function(distance, port, uuid) {

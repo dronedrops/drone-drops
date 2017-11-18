@@ -122,6 +122,7 @@ Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mong
 - ❌ 💄 Toast Messages.
 - ❌ 💄 Floating - Labels
 - ❌ Clear unused npm packages from packages.json
+- ❌ Search for all TODO: in Repo and close it.
 
 ### jerome + dinesh + thiru
 - ✅  Transaction Contracts - Init
