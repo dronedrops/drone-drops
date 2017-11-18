@@ -53,8 +53,8 @@ function confirmPayment() {
 		.then(function(value) {
 			console.log('Order created in the Blockchain!!!');
 			console.log(value.valueOf());
-			// TODO: call API to make the drones fly.
-			validateOpenOrder();
+			// TODO: 1. call API to make the drones fly.
+			// TODO: 2. updateStatus('Order Picked Up');
 		})
 		.catch(function(e) {
 			console.error(e);

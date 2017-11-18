@@ -86,28 +86,31 @@ Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mong
 ## ToDo
 
 ### thiru
-- ✅ Mambo Orchestration
-- ✅ Node App - Meta Coin
-- ✅ Node App - Meta Mask Integration
-- ✅ Search Drone based on co-ords
-- ✅ Lego Doors Base Version - Construction
-- ✅ Rpi - Image burning - Nodejs installation - BLE Setup
-- ✅ SVG Icons Updates
-- ✅ RPi - BLE Setup
-- ✅ MongoDB - Schema Update to include additional Details of Drone, (`droneId (mambo-0702) , droneEthAccount, FlightHours, GpsBuiltIn, CameraFacility`)
-- ❌ Lego Motion Sensor Detection
+- ✅  Mambo Orchestration
+- ✅  Node App - Meta Coin
+- ✅  Node App - Meta Mask Integration
+- ✅  Search Drone based on co-ords
+- ✅  Lego Doors Base Version - Construction
+- ✅  Rpi - Image burning - Nodejs installation - BLE Setup
+- ✅  SVG Icons Updates
+- ✅  RPi - BLE Setup
+- ✅  MongoDB - Schema Update to include additional Details of Drone, (`droneId (mambo-0702) , droneEthAccount, FlightHours, GpsBuiltIn, CameraFacility`)
+- ✅  Lego Motion Sensor Detection
+- ✅ BLE - Authentication
 - `LegoController getOpenOrderId() updateOrderStatus()` - req, res
 - ❌ Lego Door - Motor/Pulley Control through JS
-- ❌ BLE - Authentication
+- ❌ Build Order-Status Page
+    - ❌ Build socket.io based API
+    - ❌ Add Animated UI to represent status.
 - ❌ Rpi - Scanning Program
 - ❌ RPi - Node-program to `updateDelivery` & `validateOrder` Tasks
-    - ✅ Option 3. MacBook -> Node API -> TestRPC
-    - Option 2. RPi -> Node API -> TestRPC
+    - ✅  Option 3. MacBook -> Node API -> TestRPC
+    - ❌ Option 2. RPi -> Node API -> TestRPC
         - Write a Client.
-    - Option 1. RPi - > TestRPC
-    - Dependency
-        - Resolve TestRPC connectivity among all devices. 
-        - Run in same network or (AWS Test RPC + Heroku NodeAPI)
+    - ❌ Option 1. RPi - > TestRPC
+    - ❌ Dependency
+        - ❌ Resolve TestRPC connectivity among all devices. 
+        - ❌ Run in same network or (AWS Test RPC + Heroku NodeAPI)
 - ❌ Add Everis/Barcelona location based drones to MongoDB Stub Data
 - ❌ Pagewise UX/UI Check. 
 - ❌ Hi-Res Drone Images
@@ -120,17 +123,18 @@ Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mong
 - ❌ 💄 Floating - Labels
 - ❌ Clear unused npm packages from packages.json
 
-### jerome + dinesh
-- ✅ Transaction Contracts - Init
+### jerome + dinesh + thiru
+- ✅  Transaction Contracts - Init
 - ❌ Happy Day Flow `placeOrder` integration with NodeAPI
-- ❌ API Calls to trigger Drone Fly. Revisit with proper orchestration.
+- ✅  API Calls to trigger Drone Fly. 
+- ❌ Revisit with proper orchestration.
+- ❌ Remove All HardCoded Values
 - ❌ Negative scenario - Contract
 - ❌ Run TestRPC with Stubbed accounts.
 - ❌ Map TestRpc accounts with DroneMongoDB. - Thiru
 - ❌ Elite + BLE Integration
 - ❌ Escrow Management
 - ❌ Add Pickup Point co-ords to confirm pay page - dinesh ???
-
 
 ### gowtham & Team
 - ❌ ValidateOrder API

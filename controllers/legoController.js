@@ -51,18 +51,20 @@ function closeDoor() {
 
 wedo2.on('distanceSensor', function(distance, port, uuid) {
 	console.log('distanceSensor: ' + distance + ' at port ' + port + ' @ ' + uuid);
-	let droneUuid = identifyDrone.scanBleDevices();
-	let orderId = getOpenOrderId(droneUuid, consumerEth);
-	if (ordeId > 0) {
-		openDoor(uuid);
-		updateOrderStatus(ordeId, droneUuid);
-		flyMambo.dropPackage();
-		flyMambo.flyBack();
-		closeDoor();
-	} else {
-		// TODO: Add Danger Sound or RED LED
-		// TODO: Escrow Managment - Release the money.
-		flyMambo.flyBack();
+	if (distance < 10) {
+		let droneUuid = identifyDrone.scanBleDevices();
+		let orderId = getOpenOrderId(droneUuid, consumerEth);
+		if (ordeId > 0) {
+			openDoor(uuid);
+			updateOrderStatus(ordeId, droneUuid);
+			flyMambo.dropPackage();
+			flyMambo.flyBack();
+			closeDoor();
+		} else {
+			// TODO: Add Danger Sound or RED LED
+			// TODO: Escrow Managment - Release the money.
+			flyMambo.flyBack();
+		}
 	}
 });
 
