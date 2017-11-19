@@ -97,17 +97,17 @@ Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mong
 - ✅  MongoDB - Schema Update to include additional Details of Drone, (`droneId (mambo-0702) , droneEthAccount, FlightHours, GpsBuiltIn, CameraFacility`)
 - ✅  Lego Motion Sensor Detection
 - ✅ BLE - Authentication
-- `LegoController getOpenOrderId() updateOrderStatus()` - req, res
+- ✅ Video Animation Done.
+- ✅ `LegoController getOpenOrderId() updateOrderStatus()` - req, res
 - ❌ Lego Door - Motor/Pulley Control through JS
 - ❌ Build Order-Status Page
     - ❌ Build socket.io based API
     - ❌ Add Animated UI to represent status.
 - ❌ Rpi - Scanning Program
 - ❌ RPi - Node-program to `updateDelivery` & `validateOrder` Tasks
-    - ✅  Option 3. MacBook -> Node API -> TestRPC
-    - ❌ Option 2. RPi -> Node API -> TestRPC
+    - ✅  Option 2. MacBook -> Node API -> TestRPC
+    - ✅  Option 1. RPi -> Node API -> TestRPC
         - Write a Client.
-    - ❌ Option 1. RPi - > TestRPC
     - ❌ Dependency
         - ❌ Resolve TestRPC connectivity among all devices. 
         - ❌ Run in same network or (AWS Test RPC + Heroku NodeAPI)
@@ -118,11 +118,11 @@ Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mong
 - ❌ Slide Animations + GIF with - gowtham
 - ❌ Expose ETH Accounts to MongoDB API
 - ❌ Landing Page - UI Update + Product Features + Team Photo
+- ❌ Search for all TODO: in Repo and close it.
 - ❌ Host the node-app & mongo-api in Heroku/Now
 - ❌ 💄 Toast Messages.
 - ❌ 💄 Floating - Labels
 - ❌ Clear unused npm packages from packages.json
-- ❌ Search for all TODO: in Repo and close it.
 
 ### jerome + dinesh + thiru
 - ✅  Transaction Contracts - Init
