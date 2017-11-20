@@ -81,11 +81,11 @@ testrpc --account="0xaa73b5c98e60d589e71ce7cff59c02f82e12c7ce676ee356da8e058a285
 
 *Sender Ethereum Account*
 
-* Private Key
+* Public Key
 ```
 0x5f502e6b9eb8aab74ab522397e3cfc5655b3c84e
 ```
-* Public Key
+* Private Key
 ```
 0xaef00ab772e70aa785f0674973d4ad08335ecb02f7e683c275068694b5258bb1
 ```
