@@ -1,0 +1,9 @@
+{
+  "orderStatus" : {
+    "123" : {
+      "isOrderCreated" : "Yes",
+      "isPackagePickedUp" : "Yes",
+      "lastModifiedDateTime" : 1458822333878
+    }
+  }
+}

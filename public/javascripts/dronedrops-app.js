@@ -9,6 +9,15 @@ import confirmPayment from './modules/confirmPayment';
 
 // import '../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader';
 
+import io from 'socket.io-client';
+var socket = io.connect('http://localhost:5454');
+
+socket.on('news', function(data) {
+	console.log(data);
+	$(`#${data.element}-Msg`).innerText = `${data.time} - ${data.message}`;
+	showErrors($(`#${data.element}`));
+});
+
 autocomplete($('#address'), $('#lat'), $('#lng'));
 autocomplete($('#fromAddress'), $('#fromLat'), $('#fromLng'));
 autocomplete($('#toAddress'), $('#toLat'), $('#toLng'));
@@ -44,3 +53,13 @@ window.addEventListener('load', function() {
 		window.web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
 	}
 });
+
+function showErrors(msg) {
+	msg.removeAttribute('hidden');
+}
+
+function clearErrors(msg) {
+	if (!msg.hasAttribute('hidden')) {
+		msg.setAttribute('hidden', true);
+	}
+}
