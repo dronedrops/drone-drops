@@ -9,6 +9,19 @@ import confirmPayment from './modules/confirmPayment';
 
 // import '../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader';
 
+import io from 'socket.io-client';
+var socket = io.connect('http://localhost:5454');
+
+let droneFlash = $('#droneFlash');
+let droneMsg = $('#droneMsg');
+
+
+socket.on('news', function(data) {
+	console.log(data);
+	droneMsg.innerText = `${data.time} - ${data.message}`;
+	showErrors(droneFlash);
+});
+
 autocomplete($('#address'), $('#lat'), $('#lng'));
 autocomplete($('#fromAddress'), $('#fromLat'), $('#fromLng'));
 autocomplete($('#toAddress'), $('#toLat'), $('#toLng'));
@@ -44,3 +57,13 @@ window.addEventListener('load', function() {
 		window.web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
 	}
 });
+
+function showErrors(msg) {
+	msg.removeAttribute('hidden');
+}
+
+function clearErrors(msg) {
+	if (!msg.hasAttribute('hidden')) {
+		msg.setAttribute('hidden', true);
+	}
+}

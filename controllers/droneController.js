@@ -7,7 +7,7 @@ const Web3 = require('web3');
 const contract = require('truffle-contract');
 const mambo = require('./flyMambo');
 const elite = require('./flyElite');
-
+const moment = require('moment');
 const fs = require('fs');
 const fsdata = fs.readFileSync('build/contracts/Transaction.json', 'utf8');
 const Transaction_json = JSON.parse(fsdata);
@@ -162,7 +162,6 @@ exports.getOrderStatus = async (req, res, next) => {
 	res.render('order-status', { title: 'Order Status', orderId });
 };
 
-
 exports.updateOrderStatus = async (req, res) => {
 	let droneDrop = await DroneOrderTransaction.deployed();
 	let updateOrderStatus = await droneDrop.updateOrderStatus.call(
@@ -185,6 +184,12 @@ exports.flyElite = async (req, res) => {
 };
 
 exports.flyMambo = async (req, res) => {
+	let socketio = req.app.get('socketio');
+	socketio.emit('news', { time: getCurrentTime(), message: 'Flying Mambo' });
 	mambo.fly();
 	res.json({ mambo: 'flying' });
 };
+
+function getCurrentTime() {
+	return moment(Date.now()).format('DD-MMM-YYYY hh:mm:ss a');
+}
