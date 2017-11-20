@@ -3,7 +3,17 @@
 const RollingSpider = require('rolling-spider');
 const temporal = require('temporal');
 const rollingSpider = new RollingSpider();
+const axios = require('axios');
 
+var API_BASE_URL = 'http://localhost:7777/api';
+
+async function emitPackageInTransit() {
+	try {
+		let updateOrderStatus = await axios(`${API_BASE_URL}/emitMessage?message=Package In Transit&element=packageInTransit`);
+	} catch (error) {
+		console.error('emitPackageInTransit', error);
+	}
+}
 
 exports.fly = function() {
 	console.log('Fly Mambo');
@@ -20,7 +30,7 @@ exports.fly = function() {
 					task: function() {
 						rollingSpider.takeOff();
 						rollingSpider.flatTrim();
-						console.log('Mambo Took Off');
+						emitPackageInTransit();
 					}
 				},
 				{
@@ -28,7 +38,6 @@ exports.fly = function() {
 					task: function() {
 						rollingSpider.forward();
 						console.log('Mambo In Transit');
-						
 					}
 				},
 				{
@@ -56,4 +65,4 @@ exports.dropPackage = function() {
 
 exports.flyBack = function() {
 	console.log('Reverse fly function');
-}
+};
