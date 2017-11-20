@@ -7,6 +7,9 @@ const mapOptions = {
 }
 
 function loadPickUpPoints(map, lat = 51.5136799, lng = -0.08653000000003885) {
+    var pickupFrom = $('#fromLat').value + ',' + $('#fromLng').value;
+    var destination = $('#toLat').value + ',' + $('#toLng').value;
+
     axios.get(`/api/drones/near?lat=${lat}&lng=${lng}`)
         .then(res => {
             const drones = res.data;
@@ -32,7 +35,7 @@ function loadPickUpPoints(map, lat = 51.5136799, lng = -0.08653000000003885) {
             markers.forEach(marker => marker.addListener('click', function() {
                 const html = `
                     <div class="popup">
-                        <a href="/drone/${this.place.slug}?pickupFrom=${this.place.location.address}">
+                        <a href="/drone/${this.place.slug}?pickupFrom=${pickupFrom}&destination=${destination}">
                             <img src="/uploads/${this.place.photo || 'drone.png'}" alt="${this.place.name}" />
                             <p>${this.place.name} - ${this.place.location.address}</p>
                         </a>
