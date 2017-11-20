@@ -3,3 +3,21 @@ block content
     .inner
         h2 #{title}
         p OrderId #{orderId}
+        .flash-messages(id='orderCreated' hidden)
+          Err.flash.flash--info
+              p.flash__text(id="orderCreated-Msg")
+        .flash-messages(id='packagePickedUpBy' hidden)
+          Err.flash.flash--info
+              p.flash__text(id="packagePickedUpBy-Msg")
+        .flash-messages(id='packageInTransit' hidden)
+          Err.flash.flash--info
+              p.flash__text(id="packageInTransit-Msg")
+        .flash-messages(id='droneVerified' hidden)
+          Err.flash.flash--info
+              p.flash__text(id="droneVerified-Msg")
+        .flash-messages(id='packageDelivered' hidden)
+          Err.flash.flash--info
+              p.flash__text(id="packageDelivered-Msg")
+        .flash-messages(id='paymentSettled' hidden)
+          Err.flash.flash--info
+              p.flash__text(id="paymentSettled-Msg")

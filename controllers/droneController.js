@@ -158,6 +158,12 @@ async function getOrderId(req, res, next) {
 
 exports.getOrderStatus = async (req, res, next) => {
 	let orderId = await getOrderId(req, res, next);
+	let status = {
+		time: getCurrentTime(),
+		message: `Order Created. Order Id ${orderId}`,
+		element: 'orderCreated'
+	};
+	emitOrderStatus(req, status);
 	mambo.fly();
 	res.render('order-status', { title: 'Order Status', orderId });
 };
@@ -175,17 +181,33 @@ exports.updateOrderStatus = async (req, res) => {
 			gas: 300000
 		}
 	);
+	let status = {
+		time: getCurrentTime(),
+		message: 'Payment Settled for Shipment',
+		element: 'paymentSettled'
+	};
+	emitOrderStatus(req, status);
 	res.json({ orderStatus: 'success' });
 };
 
 exports.flyElite = async (req, res) => {
+	let status = {
+		time: getCurrentTime(),
+		message: 'Package picked up by Elite!',
+		element: 'packagePickedUpBy'
+	};
+	emitOrderStatus(req, status);
 	elite.flyElite();
 	res.json({ elite: 'flying' });
 };
 
 exports.flyMambo = async (req, res) => {
-	let socketio = req.app.get('socketio');
-	socketio.emit('news', { time: getCurrentTime(), message: 'Flying Mambo' });
+	let status = {
+		time: getCurrentTime(),
+		message: 'Package picked up by Mambo!',
+		element: 'packagePickedUpBy'
+	};
+	emitOrderStatus(req, status);
 	mambo.fly();
 	res.json({ mambo: 'flying' });
 };
@@ -193,3 +215,18 @@ exports.flyMambo = async (req, res) => {
 function getCurrentTime() {
 	return moment(Date.now()).format('DD-MMM-YYYY hh:mm:ss a');
 }
+
+function emitOrderStatus(req, status) {
+	let socketio = req.app.get('socketio');
+	socketio.emit('news', status);
+}
+
+exports.emitMessage = async (req, res) => {
+	let status = {
+		time: getCurrentTime(),
+		message: req.query.message,
+		element: req.query.element
+	};
+	emitOrderStatus(req, status);
+	res.json({ elite: 'flying' });
+};

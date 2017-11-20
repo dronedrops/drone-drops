@@ -9,6 +9,14 @@ var consumerEth = '0x14723a09acff6d2a60dcdf7aa4aff308fddc160c';
 var deliverToPostCode = 'LS101EA';
 var API_BASE_URL = 'http://localhost:7777/api';
 
+async function emitMessage(message, element) {
+	try {
+		let emitStatus = await axios(`${API_BASE_URL}/emitMessage?message=${message}&element=${element}`);
+	} catch (error) {
+		console.error(`${message} - Status: `, error);
+	}
+}
+
 wedo2.on('connected', function(uuid) {
     console.log('I found a WeDo with uuid: ' + uuid);
     // Place getters and setters in here, to make sure that they are called,
@@ -64,8 +72,12 @@ wedo2.on('distanceSensor', function(distance, port, uuid) {
         let droneUuid = identifyDrone.scanBleDevices();
         let orderId = getOpenOrderId(droneUuid, consumerEth);
         if (ordeId > 0) {
+            emitMessage('Drone Verified', 'droneVerified');
             openDoor(uuid);
+            emitMessage('Package Delivered', 'packageDelivered');
+            // await delay(4000);
             updateOrderStatus(ordeId, droneUuid);
+            emitMessage('Payment Settled', 'paymentSettled');
             flyMambo.dropPackage();
             flyMambo.flyBack();
             closeDoor();

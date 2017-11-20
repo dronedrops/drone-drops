@@ -12,14 +12,10 @@ import confirmPayment from './modules/confirmPayment';
 import io from 'socket.io-client';
 var socket = io.connect('http://localhost:5454');
 
-let droneFlash = $('#droneFlash');
-let droneMsg = $('#droneMsg');
-
-
 socket.on('news', function(data) {
 	console.log(data);
-	droneMsg.innerText = `${data.time} - ${data.message}`;
-	showErrors(droneFlash);
+	$(`#${data.element}-Msg`).innerText = `${data.time} - ${data.message}`;
+	showErrors($(`#${data.element}`));
 });
 
 autocomplete($('#address'), $('#lat'), $('#lng'));
