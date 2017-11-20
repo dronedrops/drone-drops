@@ -59,6 +59,46 @@ If you have previously loaded in this data, you can wipe your database 100% clea
 npm run blowitallaway
 ```
 
+
+
+*Start the TestRpc with following command:*
+
+```
+testrpc --account="0xaa73b5c98e60d589e71ce7cff59c02f82e12c7ce676ee356da8e058a285ccd61,1000000000000000000000" --account="0x2ac7167d1ef34f87cb4b9081d36433ae62d9fbae66775dfc10c4c1c761274315,0"
+```
+
+*Drone Ethererum Account*
+1. Public Address: 
+```
+0xde3b3E46718Ca51A9dC35C242A93688992a77f9f
+```
+3. Private Key:
+```
+0x2ac7167d1ef34f87cb4b9081d36433ae62d9fbae66775dfc10c4c1c761274315
+
+```
+
+
+*Sender Ethereum Account*
+
+* Private Key
+```
+0x5f502e6b9eb8aab74ab522397e3cfc5655b3c84e
+```
+* Public Key
+```
+0xaef00ab772e70aa785f0674973d4ad08335ecb02f7e683c275068694b5258bb1
+```
+* Balance: 50
+
+*Configure Sender Account in Metamask:*
+1. Enable *Metamask* and open with Password.
+2. Click the Profile Icon at the end of Menu.. select "Import Private Key" 
+3. Copy paste private key of Sender in to.
+4. Use this account for Placing order
+
+
+
 ## FAQ
 
 ### The Google Maps API key isn't working

@@ -13,7 +13,9 @@ block content
             .single__drone
                 .single__drone__hero
                     != h.icon('coins')
-                    h4(id='droneEth') #{drone.eth} ETH
+                    h4
+                      span(id='droneEth') #{drone.eth}
+                      span ETH
                     p Delivery Charge
             .single__drone
                 .single__drone__hero

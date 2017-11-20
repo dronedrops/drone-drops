@@ -5,10 +5,11 @@ import { default as contract } from 'truffle-contract';
 import transactionArtifacts from '../../../build/contracts/Transaction';
 
 var accounts;
-var account;
+var senderEthAccount;
 var DroneDrops = TruffleContract(transactionArtifacts);
 const DRONE_ID = '123';
 const CONSUMER_ETH = '0x14723a09acff6d2a60dcdf7aa4aff308fddc160c';
+const DRONE_ETH = '0xb0c1c8da43a833006903227c4ef1f4da20dc469f';
 
 function init() {
     DroneDrops.setProvider(web3.currentProvider);
@@ -25,8 +26,8 @@ function init() {
         }
 
         accounts = accs;
-        account = accounts[0];
-        console.log(account);
+        senderEthAccount = accounts[0];
+        console.log(senderEthAccount);
     });
 }
 
@@ -41,10 +42,10 @@ function confirmPayment() {
                 'ls1010lj',
                 DRONE_ID,
                 CONSUMER_ETH,
-                accounts[1],
-                accounts[2], {
-                    from: account,
-                    value: 5000000000000000000,
+                senderEthAccount,
+                DRONE_ETH, {
+                    from: senderEthAccount,
+                    value: calculatePaymentInWei(),
                     gas: 300000
                 }
             );
@@ -61,6 +62,11 @@ function confirmPayment() {
             console.error('Unable to create Order. Check above error.');
             showErrors(errMsg);
         });
+}
+
+function calculatePaymentInWei(){
+    var eth = $('#droneEth').innerText;
+    return web3.toWei(eth, 'ether');
 }
 
 function showErrors(errMsg) {
