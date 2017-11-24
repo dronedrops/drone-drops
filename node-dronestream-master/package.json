@@ -1,0 +1,39 @@
+{
+  "name": "dronestream",
+  "description": "video live stream from your parrot ar.drone 2.0 to your browser in pure javascript",
+  "version": "1.1.1",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bkw/node-dronestream.git"
+  },
+  "main": "index",
+  "keywords": [
+    "drone",
+    "nodecopter",
+    "parrot",
+    "video",
+    "stream",
+    "browser",
+    "x264"
+  ],
+  "dependencies": {
+    "ws": "~0.8.1",
+    "ar-drone": "0.2.0",
+    "buffy": "0.0.5"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-jshint": "~0.6.2",
+    "matchdep": "~0.1.2",
+    "grunt-contrib-concat": "~0.3.0"
+  },
+  "author": "Bernhard K. Weisshuhn <bkw@codingforce.com>",
+  "contributors": [
+    {
+      "name": "Karl Westin",
+      "email": "karl.westin@gmail.com"
+    }
+  ],
+  "license": "BSD"
+}

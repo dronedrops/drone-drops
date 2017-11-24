@@ -2,10 +2,9 @@ extends layout
 block content
     .inner
         h2 #{title}
-        p OrderId #{orderId}
-        .flash-messages(id='orderCreated' hidden)
+        .flash-messages(id='orderCreated')
           Err.flash.flash--info
-              p.flash__text(id="orderCreated-Msg")
+              p.flash__text(id="orderCreated-Msg") #{currentTime} Order Created. Order Id #{orderId}
         .flash-messages(id='packagePickedUpBy' hidden)
           Err.flash.flash--info
               p.flash__text(id="packagePickedUpBy-Msg")

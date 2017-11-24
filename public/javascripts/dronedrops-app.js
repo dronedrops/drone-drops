@@ -14,8 +14,12 @@ var socket = io.connect('http://localhost:5454');
 
 socket.on('news', function(data) {
 	console.log(data);
-	$(`#${data.element}-Msg`).innerText = `${data.time} - ${data.message}`;
-	showErrors($(`#${data.element}`));
+	if(data.element) {
+		$(`#${data.element}-Msg`).innerText = `${data.time} - ${data.message}`;
+		showErrors($(`#${data.element}`));
+	} else {
+		console.log('data.element', data.element);
+	}
 });
 
 autocomplete($('#address'), $('#lat'), $('#lng'));

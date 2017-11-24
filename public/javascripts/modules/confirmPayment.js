@@ -7,7 +7,7 @@ import transactionArtifacts from '../../../build/contracts/Transaction';
 var accounts;
 var senderEthAccount;
 var DroneDrops = TruffleContract(transactionArtifacts);
-const DRONE_ID = '123';
+const DRONE_ID = 'dd9217ccd7424581adfec6d142420e51'; // MAMBO - 
 const CONSUMER_ETH = '0x14723a09acff6d2a60dcdf7aa4aff308fddc160c';
 const DRONE_ETH = '0xb0c1c8da43a833006903227c4ef1f4da20dc469f';
 
@@ -34,6 +34,7 @@ function init() {
 function confirmPayment() {
     init();
     let errMsg = $('#confirmPaymentErr');
+    $('#droneId').value = DRONE_ID;
     let urlParams = getUrlVars();
     clearErrors(errMsg);
     DroneDrops.deployed()
@@ -56,7 +57,6 @@ function confirmPayment() {
             console.log('Order created in the Blockchain!!!');
             console.log('Tx Ref', value.valueOf());
             $('#placeOrderForm').submit();
-            // TODO: updateStatus('Order Picked Up');
         })
         .catch(function(e) {
             console.error(e);

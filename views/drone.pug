@@ -15,7 +15,7 @@ block content
                     != h.icon('coins')
                     h4
                       span(id='droneEth') #{drone.eth}
-                      span ETH
+                      span  ETH
                     p Delivery Charge
             .single__drone
                 .single__drone__hero
@@ -46,7 +46,7 @@ block content
           Err.flash.flash--error
               p.flash__text Oops! Unable to confirm the payment in network
         form(action=`/order-status`, method="GET" id="placeOrderForm")
-          input(type="hidden" id="droneId" name="droneId" value="123" )
+          input(type="hidden" id="droneId" name="droneId" value="" )
           input(type="hidden" id="pickupFrom" name="pickupFrom"  value=`${pickupFrom}`)
           input(type="hidden" id="consumerEth" name="consumerEth" value="0x14723a09acff6d2a60dcdf7aa4aff308fddc160c")
           input(type="submit", value="Place Order" class="submitButton" id="confirmPayment")

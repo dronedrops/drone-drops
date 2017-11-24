@@ -42,9 +42,10 @@ async function openDoor(uuid) {
 
 async function getOpenOrderId(droneUUID, consumerEth) {
     try {
+        console.log('Inside getOpenOrderId -- droneUUID', droneUUID, consumerEth);
         let orderStatus = await axios(`${API_BASE_URL}/validateOrder?droneId=${droneUUID}&consumerEth=${consumerEth}`);
-        let orderId = orderStatus.data.orderId;
-        console.log('getOpenOrderId', orderId);
+        let orderId = await orderStatus.data.orderId;
+        console.log('legoController - getOpenOrderId', orderId);
         return orderId;
     } catch (error) {
         console.error(error);
@@ -66,17 +67,18 @@ function closeDoor() {
     //TODO: console.log('Close the door');
 }
 
-wedo2.on('distanceSensor', function(distance, port, uuid) {
+wedo2.on('distanceSensor', async function(distance, port, uuid) {
     console.log('distanceSensor: ' + distance + ' at port ' + port + ' @ ' + uuid);
     if (distance < 10) {
-        let droneUuid = identifyDrone.scanBleDevices();
-        let orderId = getOpenOrderId(droneUuid, consumerEth);
-        if (ordeId > 0) {
+        let droneUuid = identifyDrone.scanBleDevices() || 'dd9217ccd7424581adfec6d142420e51';
+        let orderId = await getOpenOrderId(droneUuid, consumerEth);
+        if (orderId > 0) {
+            console.log('Inside Valid Order ID', orderId);
             emitMessage('Drone Verified', 'droneVerified');
             openDoor(uuid);
             emitMessage('Package Delivered', 'packageDelivered');
             // await delay(4000);
-            updateOrderStatus(ordeId, droneUuid);
+            updateOrderStatus(orderId, droneUuid);
             emitMessage('Payment Settled', 'paymentSettled');
             flyMambo.dropPackage();
             flyMambo.flyBack();

@@ -184,3 +184,23 @@ Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mong
 - ❌ Slide preparation
 - ❌ Test - E2E Integration
 - ❌ Possibility of Google Actions or Alexa Skill to open door.
+
+
+
+Slides
+-- Audio Check
+-- Slides - Presentation View
+
+Before Demo Slide
+-- Start Drone
+-- Start Lego Controller
+-- Turn on Lego & Drone Placement
+- restart npm run dev
+
+We have a built a Decentralised Application on top of block Chain,
+
+Business Impact
+ Satisfying retail customers eagerness for Quick deliver and safe delivery
+ NTT DATA major retail delivery solutions
+Next Steps:
+ Collaborate with NTTDATA's existing Drone Traffic Management Software Package

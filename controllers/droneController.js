@@ -158,14 +158,8 @@ async function getOrderId(req, res, next) {
 
 exports.getOrderStatus = async (req, res, next) => {
 	let orderId = await getOrderId(req, res, next);
-	let status = {
-		time: getCurrentTime(),
-		message: `Order Created. Order Id ${orderId}`,
-		element: 'orderCreated'
-	};
-	emitOrderStatus(req, status);
 	mambo.fly();
-	res.render('order-status', { title: 'Order Status', orderId });
+	res.render('order-status', { title: 'Order Status', orderId, currentTime: getCurrentTime()});
 };
 
 exports.updateOrderStatus = async (req, res) => {

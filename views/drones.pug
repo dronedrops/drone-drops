@@ -3,9 +3,6 @@ include mixins/_droneCard
 block content
     .inner
         h2= title
-        .flash-messages(id='droneFlash' hidden)
-          Err.flash.flash--success
-              p.flash__text(id="droneMsg")
         //- pre!= h.dump(drones)
         .drones
             each drone in drones

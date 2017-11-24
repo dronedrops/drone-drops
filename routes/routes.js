@@ -41,7 +41,9 @@ router.get('/api/flyMambo', catchErrors(droneController.flyMambo));
 http://localhost:7777/api/emitMessage?message=Package In Transit&element=packageInTransit
 http://localhost:7777/api/emitMessage?message=Order Created&element=orderCreated
 http://localhost:7777/api/emitMessage?message=Drone Verified&element=droneVerified
-http://localhost:7777/api/emitMessage?message=&element=Package Delivered&element=packageDelivered
+http://localhost:7777/api/emitMessage?message=Package Delivered&element=packageDelivered
+http://localhost:7777/api/emitMessage?message=Payment Settled&element=paymentSettled
+
 
 
 */

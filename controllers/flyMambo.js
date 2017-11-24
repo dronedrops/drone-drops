@@ -16,7 +16,7 @@ async function emitPackageInTransit() {
 }
 
 exports.fly = function() {
-	console.log('Fly Mambo');
+	console.log('Initiating Fly Mambo');
 	rollingSpider.connect(function() {
 		console.log('Connected To Mambo');
 		rollingSpider.setup(function() {
@@ -51,7 +51,7 @@ exports.fly = function() {
 					delay: 5000,
 					task: function() {
 						temporal.clear();
-						process.exit(0);
+						// process.exit(0);
 					}
 				}
 			]);
