@@ -125,7 +125,7 @@ Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mong
 
 ## ToDo
 
-### thiru
+### @thiruppathi
 - ✅  Mambo Orchestration
 - ✅  Node App - Meta Coin
 - ✅  Node App - Meta Mask Integration
@@ -139,50 +139,50 @@ Check out [this answer](https://stackoverflow.com/questions/7948789/mongodb-mong
 - ✅ BLE - Authentication
 - ✅ Video Animation Done.
 - ✅ `LegoController getOpenOrderId() updateOrderStatus()` - req, res
-- ❌ Lego Door - Motor/Pulley Control through JS
-- ❌ Build Order-Status Page
-    - ❌ Build socket.io based API
-    - ❌ Add Animated UI to represent status.
-- ❌ Rpi - Scanning Program
-- ❌ RPi - Node-program to `updateDelivery` & `validateOrder` Tasks
+- ✅ Lego Door - Motor/Pulley Control through JS
+- ✅ Build Order-Status Page
+    - ✅ Build socket.io based API
+    - ✅ Add Animated UI to represent status.
+- ✅ Rpi - Scanning Program
+- ✅ RPi - Node-program to `updateDelivery` & `validateOrder` Tasks
     - ✅  Option 2. MacBook -> Node API -> TestRPC
     - ✅  Option 1. RPi -> Node API -> TestRPC
         - Write a Client.
-    - ❌ Dependency
-        - ❌ Resolve TestRPC connectivity among all devices. 
-        - ❌ Run in same network or (AWS Test RPC + Heroku NodeAPI)
-- ❌ Add Everis/Barcelona location based drones to MongoDB Stub Data
-- ❌ Pagewise UX/UI Check. 
-- ❌ Hi-Res Drone Images
-- ❌ Slide Diagrams
-- ❌ Slide Animations + GIF with - gowtham
-- ❌ Expose ETH Accounts to MongoDB API
-- ❌ Landing Page - UI Update + Product Features + Team Photo
-- ❌ Search for all TODO: in Repo and close it.
-- ❌ Host the node-app & mongo-api in Heroku/Now
-- ❌ 💄 Toast Messages.
-- ❌ 💄 Floating - Labels
-- ❌ Clear unused npm packages from packages.json
+    - ✅ Dependency
+        - ✅ Resolve TestRPC connectivity among all devices. 
+        - ✅ Run in same network or (AWS Test RPC + Heroku NodeAPI)
+- ✅ Add Barcelona location based drones to MongoDB Stub Data
+- ✅ Pagewise UX/UI Check. 
+- ✅ Hi-Res Drone Images
+- ✅ Slide Diagrams
+- ✅ Slide Animations + GIF with - gowtham
+- ✅ Expose ETH Accounts to MongoDB API
+- ✅ Landing Page - UI Update + Product Features + Team Photo
+- ✅ Search for all TODO: in Repo and close it.
+- ✅ Host the node-app & mongo-api in Heroku/Now
+- ✅ 💄 Toast Messages.
+- ✅ 💄 Floating - Labels
+- ✅ Clear unused npm packages from packages.json
 
 ### jerome + dinesh + thiru
 - ✅  Transaction Contracts - Init
-- ❌ Happy Day Flow `placeOrder` integration with NodeAPI
+- ✅ Happy Day Flow `placeOrder` integration with NodeAPI
 - ✅  API Calls to trigger Drone Fly. 
-- ❌ Revisit with proper orchestration.
-- ❌ Remove All HardCoded Values
+- ✅ Revisit with proper orchestration.
+- ✅ Remove All HardCoded Values
 - ❌ Negative scenario - Contract
-- ❌ Run TestRPC with Stubbed accounts.
-- ❌ Map TestRpc accounts with DroneMongoDB. - Thiru
+- ✅ Run TestRPC with Stubbed accounts.
+- ✅ Map TestRpc accounts with DroneMongoDB. - Thiru
 - ❌ Elite + BLE Integration
 - ❌ Escrow Management
 - ❌ Add Pickup Point co-ords to confirm pay page - dinesh ???
 
 ### gowtham & Team
-- ❌ ValidateOrder API
-- ❌ Host - AWS Test RPC + Integration - Truffle Migration Issue.
-- ❌ Arch & Tech Diagram - Draft
-- ❌ Slide preparation
-- ❌ Test - E2E Integration
+- ✅ ValidateOrder API
+- ✅ Host - AWS Test RPC + Integration - Truffle Migration Issue.
+- ✅ Arch & Tech Diagram - Draft
+- ✅ Slide preparation
+- ✅ Test - E2E Integration
 - ❌ Possibility of Google Actions or Alexa Skill to open door.
 
 
@@ -201,6 +201,6 @@ We have a built a Decentralised Application on top of block Chain,
 
 Business Impact
  Satisfying retail customers eagerness for Quick deliver and safe delivery
- NTT DATA major retail delivery solutions
+ major retail delivery solutions
 Next Steps:
- Collaborate with NTTDATA's existing Drone Traffic Management Software Package
+ Collaborate with existing Drone Traffic Management Software Package
